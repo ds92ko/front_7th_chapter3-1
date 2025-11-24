@@ -21,5 +21,6 @@
         "parser": "html"
       }
     }
-  ]
+  ],
+  "plugins": ["prettier-plugin-tailwindcss"]
 }
