@@ -1,0 +1,16 @@
+/* ============================================
+   BORDER RADIUS TOKENS
+   ============================================ */
+
+:root {
+  --radius: 0.625rem; /* 10px - base radius */
+  --radius-none: 0;
+  --radius-sm: 0.125rem; /* 2px */
+  --radius-md: 0.1875rem; /* 3px */
+  --radius-lg: 0.25rem; /* 4px */
+  --radius-xl: 0.5rem; /* 8px */
+  --radius-2xl: 0.625rem; /* 10px */
+  --radius-3xl: 0.75rem; /* 12px */
+  --radius-full: 9999px;
+}
+

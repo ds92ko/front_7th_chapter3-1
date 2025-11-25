@@ -1,0 +1,136 @@
+/* ============================================
+   COLOR TOKENS
+   ============================================ */
+
+:root {
+  /* Base colors - Gray scale */
+  --background: oklch(0.98 0 0); /* #f7fafc - 매우 밝은 회색 */
+  --foreground: oklch(0.15 0 0); /* #1a202c - 거의 검은색 */
+  --card: oklch(1 0 0); /* #ffffff - 흰색 */
+  --card-foreground: oklch(0.15 0 0); /* #1a202c */
+
+  /* Popover */
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.15 0 0);
+
+  /* Primary - Blue (Brand color) */
+  --primary: oklch(0.45 0.18 250); /* #1976d2 - Material Blue 700 */
+  --primary-foreground: oklch(0.985 0 0); /* 흰색 */
+
+  /* Secondary - Light gray */
+  --secondary: oklch(0.96 0 0); /* #f5f5f5 */
+  --secondary-foreground: oklch(0.25 0 0); /* #333 */
+
+  /* Muted - Very light gray */
+  --muted: oklch(0.98 0 0); /* #fafafa */
+  --muted-foreground: oklch(0.45 0 0); /* #718096 */
+
+  /* Accent - Light blue tint */
+  --accent: oklch(0.95 0.02 250); /* #e3f2fd - 매우 밝은 블루 */
+  --accent-foreground: oklch(0.45 0.18 250); /* Primary blue */
+
+  /* Destructive - Red */
+  --destructive: oklch(0.55 0.22 25); /* #d32f2f - Red 700 */
+  --destructive-foreground: oklch(0.985 0 0); /* 흰색 */
+
+  /* Success - Green */
+  --success: oklch(0.5 0.15 145); /* #388e3c - Green 700 */
+  --success-foreground: oklch(0.985 0 0); /* 흰색 */
+
+  /* Warning - Orange */
+  --warning: oklch(0.65 0.18 60); /* #f57c00 - Orange 700 */
+  --warning-foreground: oklch(0.985 0 0); /* 흰색 */
+
+  /* Info - Light Blue */
+  --info: oklch(0.55 0.15 240); /* #0288d1 - Blue 600 */
+  --info-foreground: oklch(0.985 0 0); /* 흰색 */
+
+  /* Borders and inputs */
+  --border: oklch(0.9 0 0); /* #e5e7eb - Gray 200 */
+  --input: oklch(0.9 0 0); /* #e5e7eb */
+  --ring: oklch(0.45 0.18 250); /* Primary blue for focus rings */
+
+  /* Chart colors */
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+
+  /* Sidebar */
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.15 0 0);
+  --sidebar-primary: oklch(0.45 0.18 250);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.96 0 0);
+  --sidebar-accent-foreground: oklch(0.25 0 0);
+  --sidebar-border: oklch(0.9 0 0);
+  --sidebar-ring: oklch(0.45 0.18 250);
+}
+
+.dark {
+  /* Base colors - Dark gray scale */
+  --background: oklch(0.12 0 0); /* 매우 어두운 회색 */
+  --foreground: oklch(0.98 0 0); /* 거의 흰색 */
+  --card: oklch(0.18 0 0); /* 어두운 회색 */
+  --card-foreground: oklch(0.98 0 0);
+
+  /* Popover */
+  --popover: oklch(0.18 0 0);
+  --popover-foreground: oklch(0.98 0 0);
+
+  /* Primary - Lighter blue for dark mode */
+  --primary: oklch(0.65 0.18 250); /* 밝은 블루 */
+  --primary-foreground: oklch(0.1 0 0); /* 어두운 색 */
+
+  /* Secondary - Dark gray */
+  --secondary: oklch(0.25 0 0); /* 어두운 회색 */
+  --secondary-foreground: oklch(0.98 0 0);
+
+  /* Muted - Dark gray */
+  --muted: oklch(0.25 0 0);
+  --muted-foreground: oklch(0.7 0 0); /* 밝은 회색 */
+
+  /* Accent - Dark blue tint */
+  --accent: oklch(0.25 0.05 250);
+  --accent-foreground: oklch(0.65 0.18 250);
+
+  /* Destructive - Lighter red for dark mode */
+  --destructive: oklch(0.65 0.2 25); /* 밝은 빨강 */
+  --destructive-foreground: oklch(0.98 0 0);
+
+  /* Success - Lighter green for dark mode */
+  --success: oklch(0.6 0.15 145); /* 밝은 초록 */
+  --success-foreground: oklch(0.98 0 0);
+
+  /* Warning - Lighter orange for dark mode */
+  --warning: oklch(0.7 0.18 60); /* 밝은 주황 */
+  --warning-foreground: oklch(0.1 0 0);
+
+  /* Info - Lighter blue for dark mode */
+  --info: oklch(0.65 0.15 240); /* 밝은 파랑 */
+  --info-foreground: oklch(0.98 0 0);
+
+  /* Borders and inputs */
+  --border: oklch(0.3 0 0 / 0.5); /* 반투명 어두운 회색 */
+  --input: oklch(0.3 0 0 / 0.6);
+  --ring: oklch(0.65 0.18 250); /* Primary blue */
+
+  /* Chart colors */
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+
+  /* Sidebar */
+  --sidebar: oklch(0.18 0 0);
+  --sidebar-foreground: oklch(0.98 0 0);
+  --sidebar-primary: oklch(0.65 0.18 250);
+  --sidebar-primary-foreground: oklch(0.98 0 0);
+  --sidebar-accent: oklch(0.25 0 0);
+  --sidebar-accent-foreground: oklch(0.98 0 0);
+  --sidebar-border: oklch(0.3 0 0 / 0.5);
+  --sidebar-ring: oklch(0.65 0.18 250);
+}
+
