@@ -1,3 +1,5 @@
+import type { Post } from '@/services/postService';
+import type { User } from '@/services/userService';
 import React from 'react';
 
 // 🚨 Bad Practice: UI 컴포넌트가 도메인 타입을 알고 있음
@@ -13,7 +15,7 @@ interface ButtonProps {
   // 🚨 도메인 관심사 추가
   entityType?: 'user' | 'post';
   action?: 'create' | 'edit' | 'delete' | 'publish' | 'archive';
-  entity?: any; // 엔티티 객체를 직접 받음
+  entity?: User | Post; // 엔티티 객체를 직접 받음
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -35,7 +37,7 @@ export const Button: React.FC<ButtonProps> = ({
 
   if (entityType && action && entity) {
     // 비즈니스 규칙: 관리자는 삭제 불가
-    if (entityType === 'user' && action === 'delete' && entity.role === 'admin') {
+    if (entityType === 'user' && action === 'delete' && (entity as User).role === 'admin') {
       actualDisabled = true;
     }
 
