@@ -41,7 +41,7 @@ export const FormTextarea: React.FC<FormTextareaProps> = ({
       <textarea
         name={name}
         value={value}
-        onChange={(e) => onChange(e.target.value)}
+        onChange={e => onChange(e.target.value)}
         placeholder={placeholder}
         required={required}
         disabled={disabled}

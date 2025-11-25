@@ -36,7 +36,7 @@ export const Modal: React.FC<ModalProps> = ({
 
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className={modalClasses} onClick={(e) => e.stopPropagation()}>
+      <div className={modalClasses} onClick={e => e.stopPropagation()}>
         {title && (
           <div className="modal-header">
             <h3 className="modal-title">{title}</h3>

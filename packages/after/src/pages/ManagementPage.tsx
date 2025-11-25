@@ -174,22 +174,22 @@ export const ManagementPage: React.FC = () => {
         total: users.length,
         stat1: {
           label: '활성',
-          value: users.filter((u) => u.status === 'active').length,
+          value: users.filter(u => u.status === 'active').length,
           color: '#2e7d32',
         },
         stat2: {
           label: '비활성',
-          value: users.filter((u) => u.status === 'inactive').length,
+          value: users.filter(u => u.status === 'inactive').length,
           color: '#ed6c02',
         },
         stat3: {
           label: '정지',
-          value: users.filter((u) => u.status === 'suspended').length,
+          value: users.filter(u => u.status === 'suspended').length,
           color: '#d32f2f',
         },
         stat4: {
           label: '관리자',
-          value: users.filter((u) => u.role === 'admin').length,
+          value: users.filter(u => u.role === 'admin').length,
           color: '#1976d2',
         },
       };
@@ -199,17 +199,17 @@ export const ManagementPage: React.FC = () => {
         total: posts.length,
         stat1: {
           label: '게시됨',
-          value: posts.filter((p) => p.status === 'published').length,
+          value: posts.filter(p => p.status === 'published').length,
           color: '#2e7d32',
         },
         stat2: {
           label: '임시저장',
-          value: posts.filter((p) => p.status === 'draft').length,
+          value: posts.filter(p => p.status === 'draft').length,
           color: '#ed6c02',
         },
         stat3: {
           label: '보관됨',
-          value: posts.filter((p) => p.status === 'archived').length,
+          value: posts.filter(p => p.status === 'archived').length,
           color: 'rgba(0, 0, 0, 0.6)',
         },
         stat4: {
@@ -433,9 +433,9 @@ export const ManagementPage: React.FC = () => {
                 entityType={entityType}
                 onEdit={handleEdit}
                 onDelete={handleDelete}
-                onPublish={(id) => handleStatusAction(id, 'publish')}
-                onArchive={(id) => handleStatusAction(id, 'archive')}
-                onRestore={(id) => handleStatusAction(id, 'restore')}
+                onPublish={id => handleStatusAction(id, 'publish')}
+                onArchive={id => handleStatusAction(id, 'archive')}
+                onRestore={id => handleStatusAction(id, 'restore')}
               />
             </div>
           </div>
@@ -475,7 +475,7 @@ export const ManagementPage: React.FC = () => {
               <FormInput
                 name="username"
                 value={formData.username || ''}
-                onChange={(value) => setFormData({ ...formData, username: value })}
+                onChange={value => setFormData({ ...formData, username: value })}
                 label="사용자명"
                 placeholder="사용자명을 입력하세요"
                 required
@@ -485,7 +485,7 @@ export const ManagementPage: React.FC = () => {
               <FormInput
                 name="email"
                 value={formData.email || ''}
-                onChange={(value) => setFormData({ ...formData, email: value })}
+                onChange={value => setFormData({ ...formData, email: value })}
                 label="이메일"
                 placeholder="이메일을 입력하세요"
                 type="email"
@@ -497,7 +497,7 @@ export const ManagementPage: React.FC = () => {
                 <FormSelect
                   name="role"
                   value={formData.role || 'user'}
-                  onChange={(value) => setFormData({ ...formData, role: value })}
+                  onChange={value => setFormData({ ...formData, role: value })}
                   options={[
                     { value: 'user', label: '사용자' },
                     { value: 'moderator', label: '운영자' },
@@ -509,7 +509,7 @@ export const ManagementPage: React.FC = () => {
                 <FormSelect
                   name="status"
                   value={formData.status || 'active'}
-                  onChange={(value) => setFormData({ ...formData, status: value })}
+                  onChange={value => setFormData({ ...formData, status: value })}
                   options={[
                     { value: 'active', label: '활성' },
                     { value: 'inactive', label: '비활성' },
@@ -525,7 +525,7 @@ export const ManagementPage: React.FC = () => {
               <FormInput
                 name="title"
                 value={formData.title || ''}
-                onChange={(value) => setFormData({ ...formData, title: value })}
+                onChange={value => setFormData({ ...formData, title: value })}
                 label="제목"
                 placeholder="게시글 제목을 입력하세요"
                 required
@@ -536,7 +536,7 @@ export const ManagementPage: React.FC = () => {
                 <FormInput
                   name="author"
                   value={formData.author || ''}
-                  onChange={(value) => setFormData({ ...formData, author: value })}
+                  onChange={value => setFormData({ ...formData, author: value })}
                   label="작성자"
                   placeholder="작성자명"
                   required
@@ -545,7 +545,7 @@ export const ManagementPage: React.FC = () => {
                 <FormSelect
                   name="category"
                   value={formData.category || ''}
-                  onChange={(value) => setFormData({ ...formData, category: value })}
+                  onChange={value => setFormData({ ...formData, category: value })}
                   options={[
                     { value: 'development', label: 'Development' },
                     { value: 'design', label: 'Design' },
@@ -559,7 +559,7 @@ export const ManagementPage: React.FC = () => {
               <FormTextarea
                 name="content"
                 value={formData.content || ''}
-                onChange={(value) => setFormData({ ...formData, content: value })}
+                onChange={value => setFormData({ ...formData, content: value })}
                 label="내용"
                 placeholder="게시글 내용을 입력하세요"
                 rows={6}
@@ -611,7 +611,7 @@ export const ManagementPage: React.FC = () => {
               <FormInput
                 name="username"
                 value={formData.username || ''}
-                onChange={(value) => setFormData({ ...formData, username: value })}
+                onChange={value => setFormData({ ...formData, username: value })}
                 label="사용자명"
                 placeholder="사용자명을 입력하세요"
                 required
@@ -621,7 +621,7 @@ export const ManagementPage: React.FC = () => {
               <FormInput
                 name="email"
                 value={formData.email || ''}
-                onChange={(value) => setFormData({ ...formData, email: value })}
+                onChange={value => setFormData({ ...formData, email: value })}
                 label="이메일"
                 placeholder="이메일을 입력하세요"
                 type="email"
@@ -633,7 +633,7 @@ export const ManagementPage: React.FC = () => {
                 <FormSelect
                   name="role"
                   value={formData.role || 'user'}
-                  onChange={(value) => setFormData({ ...formData, role: value })}
+                  onChange={value => setFormData({ ...formData, role: value })}
                   options={[
                     { value: 'user', label: '사용자' },
                     { value: 'moderator', label: '운영자' },
@@ -645,7 +645,7 @@ export const ManagementPage: React.FC = () => {
                 <FormSelect
                   name="status"
                   value={formData.status || 'active'}
-                  onChange={(value) => setFormData({ ...formData, status: value })}
+                  onChange={value => setFormData({ ...formData, status: value })}
                   options={[
                     { value: 'active', label: '활성' },
                     { value: 'inactive', label: '비활성' },
@@ -661,7 +661,7 @@ export const ManagementPage: React.FC = () => {
               <FormInput
                 name="title"
                 value={formData.title || ''}
-                onChange={(value) => setFormData({ ...formData, title: value })}
+                onChange={value => setFormData({ ...formData, title: value })}
                 label="제목"
                 placeholder="게시글 제목을 입력하세요"
                 required
@@ -672,7 +672,7 @@ export const ManagementPage: React.FC = () => {
                 <FormInput
                   name="author"
                   value={formData.author || ''}
-                  onChange={(value) => setFormData({ ...formData, author: value })}
+                  onChange={value => setFormData({ ...formData, author: value })}
                   label="작성자"
                   placeholder="작성자명"
                   required
@@ -681,7 +681,7 @@ export const ManagementPage: React.FC = () => {
                 <FormSelect
                   name="category"
                   value={formData.category || ''}
-                  onChange={(value) => setFormData({ ...formData, category: value })}
+                  onChange={value => setFormData({ ...formData, category: value })}
                   options={[
                     { value: 'development', label: 'Development' },
                     { value: 'design', label: 'Design' },
@@ -695,7 +695,7 @@ export const ManagementPage: React.FC = () => {
               <FormTextarea
                 name="content"
                 value={formData.content || ''}
-                onChange={(value) => setFormData({ ...formData, content: value })}
+                onChange={value => setFormData({ ...formData, content: value })}
                 label="내용"
                 placeholder="게시글 내용을 입력하세요"
                 rows={6}

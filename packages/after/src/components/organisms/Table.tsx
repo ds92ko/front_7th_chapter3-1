@@ -82,8 +82,8 @@ export const Table: React.FC<TableProps> = ({
 
   const filteredData =
     searchable && searchTerm
-      ? tableData.filter((row) =>
-          Object.values(row).some((val) =>
+      ? tableData.filter(row =>
+          Object.values(row).some(val =>
             String(val).toLowerCase().includes(searchTerm.toLowerCase())
           )
         )
@@ -105,7 +105,7 @@ export const Table: React.FC<TableProps> = ({
   const actualColumns =
     columns ||
     (tableData[0]
-      ? Object.keys(tableData[0]).map((key) => ({ key, header: key, width: undefined }))
+      ? Object.keys(tableData[0]).map(key => ({ key, header: key, width: undefined }))
       : []);
 
   // 🚨 Bad Practice: Table 컴포넌트가 도메인별 렌더링 로직을 알고 있음
@@ -207,7 +207,7 @@ export const Table: React.FC<TableProps> = ({
             type="text"
             placeholder="검색..."
             value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
+            onChange={e => setSearchTerm(e.target.value)}
             style={{
               padding: '8px 12px',
               border: '1px solid #ddd',
@@ -221,7 +221,7 @@ export const Table: React.FC<TableProps> = ({
       <table className={tableClasses}>
         <thead>
           <tr>
-            {actualColumns.map((column) => (
+            {actualColumns.map(column => (
               <th
                 key={column.key}
                 style={column.width ? { width: column.width } : undefined}
@@ -251,7 +251,7 @@ export const Table: React.FC<TableProps> = ({
               onClick={() => onRowClick?.(row)}
               style={{ cursor: onRowClick ? 'pointer' : 'default' }}
             >
-              {actualColumns.map((column) => (
+              {actualColumns.map(column => (
                 <td key={column.key}>
                   {entityType ? renderCell(row, column.key) : row[column.key]}
                 </td>
@@ -271,7 +271,7 @@ export const Table: React.FC<TableProps> = ({
           }}
         >
           <button
-            onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+            onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
             disabled={currentPage === 1}
             style={{
               padding: '6px 12px',
@@ -287,7 +287,7 @@ export const Table: React.FC<TableProps> = ({
             {currentPage} / {totalPages}
           </span>
           <button
-            onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+            onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
             disabled={currentPage === totalPages}
             style={{
               padding: '6px 12px',

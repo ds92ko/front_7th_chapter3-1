@@ -81,7 +81,7 @@ export const postService = {
 
   async getById(id: number): Promise<Post | null> {
     const posts = getPosts();
-    return posts.find((p) => p.id === id) || null;
+    return posts.find(p => p.id === id) || null;
   },
 
   async create(postData: Omit<Post, 'id' | 'createdAt' | 'views'>): Promise<Post> {
@@ -92,7 +92,7 @@ export const postService = {
     }
 
     const newPost: Post = {
-      id: Math.max(...posts.map((p) => p.id), 0) + 1,
+      id: Math.max(...posts.map(p => p.id), 0) + 1,
       ...postData,
       views: 0,
       createdAt: new Date().toISOString().split('T')[0],
@@ -108,7 +108,7 @@ export const postService = {
     postData: Partial<Omit<Post, 'id' | 'createdAt' | 'views'>>
   ): Promise<Post> {
     const posts = getPosts();
-    const index = posts.findIndex((p) => p.id === id);
+    const index = posts.findIndex(p => p.id === id);
 
     if (index === -1) {
       throw new Error('Post not found');
@@ -125,7 +125,7 @@ export const postService = {
 
   async delete(id: number): Promise<void> {
     const posts = getPosts();
-    const filtered = posts.filter((p) => p.id !== id);
+    const filtered = posts.filter(p => p.id !== id);
 
     if (filtered.length === posts.length) {
       throw new Error('Post not found');
@@ -136,7 +136,7 @@ export const postService = {
 
   async publish(id: number): Promise<Post> {
     const posts = getPosts();
-    const index = posts.findIndex((p) => p.id === id);
+    const index = posts.findIndex(p => p.id === id);
 
     if (index === -1) {
       throw new Error('Post not found');
@@ -153,7 +153,7 @@ export const postService = {
 
   async archive(id: number): Promise<Post> {
     const posts = getPosts();
-    const index = posts.findIndex((p) => p.id === id);
+    const index = posts.findIndex(p => p.id === id);
 
     if (index === -1) {
       throw new Error('Post not found');
@@ -166,7 +166,7 @@ export const postService = {
 
   async restore(id: number): Promise<Post> {
     const posts = getPosts();
-    const index = posts.findIndex((p) => p.id === id);
+    const index = posts.findIndex(p => p.id === id);
 
     if (index === -1) {
       throw new Error('Post not found');

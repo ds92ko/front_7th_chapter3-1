@@ -49,7 +49,7 @@ export const FormSelect: React.FC<FormSelectProps> = ({
       <select
         name={name}
         value={value}
-        onChange={(e) => onChange(e.target.value)}
+        onChange={e => onChange(e.target.value)}
         required={required}
         disabled={disabled}
         className={selectClasses}
@@ -57,7 +57,7 @@ export const FormSelect: React.FC<FormSelectProps> = ({
         <option value="" disabled>
           {placeholder}
         </option>
-        {options.map((option) => (
+        {options.map(option => (
           <option key={option.value} value={option.value}>
             {option.label}
           </option>
