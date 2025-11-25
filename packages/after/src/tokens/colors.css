@@ -14,8 +14,8 @@
   --popover-foreground: oklch(0.15 0 0);
 
   /* Primary - Blue (Brand color) */
-  --primary: oklch(0.45 0.18 250); /* #1976d2 - Material Blue 700 */
-  --primary-foreground: oklch(0.985 0 0); /* 흰색 */
+  --primary: oklch(0.546 0.245 262.881); /* 밝은 블루 - shadcn 블루 테마 */
+  --primary-foreground: oklch(0.97 0.014 254.604); /* 흰색 */
 
   /* Secondary - Light gray */
   --secondary: oklch(0.96 0 0); /* #f5f5f5 */
@@ -48,24 +48,24 @@
   /* Borders and inputs */
   --border: oklch(0.9 0 0); /* #e5e7eb - Gray 200 */
   --input: oklch(0.9 0 0); /* #e5e7eb */
-  --ring: oklch(0.45 0.18 250); /* Primary blue for focus rings */
+  --ring: oklch(0.546 0.245 262.881); /* Primary blue for focus rings */
 
-  /* Chart colors */
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
+  /* Chart colors - shadcn 블루 테마 */
+  --chart-1: oklch(0.809 0.105 251.813);
+  --chart-2: oklch(0.623 0.214 259.815);
+  --chart-3: oklch(0.546 0.245 262.881);
+  --chart-4: oklch(0.488 0.243 264.376);
+  --chart-5: oklch(0.424 0.199 265.638);
 
   /* Sidebar */
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.15 0 0);
-  --sidebar-primary: oklch(0.45 0.18 250);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.546 0.245 262.881);
+  --sidebar-primary-foreground: oklch(0.97 0.014 254.604);
   --sidebar-accent: oklch(0.96 0 0);
   --sidebar-accent-foreground: oklch(0.25 0 0);
   --sidebar-border: oklch(0.9 0 0);
-  --sidebar-ring: oklch(0.45 0.18 250);
+  --sidebar-ring: oklch(0.546 0.245 262.881);
 }
 
 .dark {
@@ -80,8 +80,8 @@
   --popover-foreground: oklch(0.98 0 0);
 
   /* Primary - Lighter blue for dark mode */
-  --primary: oklch(0.65 0.18 250); /* 밝은 블루 */
-  --primary-foreground: oklch(0.1 0 0); /* 어두운 색 */
+  --primary: oklch(0.623 0.214 259.815); /* 밝은 블루 - shadcn 블루 테마 */
+  --primary-foreground: oklch(0.97 0.014 254.604); /* 흰색 */
 
   /* Secondary - Dark gray */
   --secondary: oklch(0.25 0 0); /* 어두운 회색 */
@@ -114,23 +114,23 @@
   /* Borders and inputs */
   --border: oklch(0.3 0 0 / 0.5); /* 반투명 어두운 회색 */
   --input: oklch(0.3 0 0 / 0.6);
-  --ring: oklch(0.65 0.18 250); /* Primary blue */
+  --ring: oklch(0.556 0 0); /* Primary blue - shadcn 블루 테마 */
 
-  /* Chart colors */
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
+  /* Chart colors - shadcn 블루 테마 */
+  --chart-1: oklch(0.809 0.105 251.813);
+  --chart-2: oklch(0.623 0.214 259.815);
+  --chart-3: oklch(0.546 0.245 262.881);
+  --chart-4: oklch(0.488 0.243 264.376);
+  --chart-5: oklch(0.424 0.199 265.638);
 
   /* Sidebar */
   --sidebar: oklch(0.18 0 0);
   --sidebar-foreground: oklch(0.98 0 0);
-  --sidebar-primary: oklch(0.65 0.18 250);
-  --sidebar-primary-foreground: oklch(0.98 0 0);
+  --sidebar-primary: oklch(0.623 0.214 259.815);
+  --sidebar-primary-foreground: oklch(0.97 0.014 254.604);
   --sidebar-accent: oklch(0.25 0 0);
   --sidebar-accent-foreground: oklch(0.98 0 0);
   --sidebar-border: oklch(0.3 0 0 / 0.5);
-  --sidebar-ring: oklch(0.65 0.18 250);
+  --sidebar-ring: oklch(0.623 0.214 259.815);
 }
 
