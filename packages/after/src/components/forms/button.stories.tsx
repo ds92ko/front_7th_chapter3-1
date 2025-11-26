@@ -1,10 +1,10 @@
 import { ChevronRight } from 'lucide-react';
 
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/forms/button';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta = {
-  title: 'UI/Button',
+  title: 'Forms/Button',
   component: Button,
   parameters: {
     layout: 'centered',

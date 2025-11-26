@@ -1,4 +1,3 @@
-import { Button } from '@/components/ui/button';
 import {
   Table,
   TableBody,
@@ -8,11 +7,12 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/components/ui/table';
+} from '@/components/data-display/table';
+import { Button } from '@/components/forms/button';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta = {
-  title: 'UI/Table',
+  title: 'Data Display/Table',
   component: Table,
   parameters: {
     layout: 'centered',

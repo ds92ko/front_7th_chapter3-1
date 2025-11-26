@@ -1,6 +1,6 @@
 import { MoreVertical } from 'lucide-react';
 
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/forms/button';
 import {
   Card,
   CardAction,
@@ -9,11 +9,11 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card';
+} from '@/components/surface/card';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta = {
-  title: 'UI/Card',
+  title: 'Surface/Card',
   component: Card,
   parameters: {
     layout: 'centered',

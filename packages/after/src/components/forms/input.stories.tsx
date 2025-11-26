@@ -1,8 +1,8 @@
-import { Input } from '@/components/ui/input';
+import { Input } from '@/components/forms/input';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta = {
-  title: 'UI/Input',
+  title: 'Forms/Input',
   component: Input,
   parameters: {
     layout: 'centered',
@@ -82,41 +82,41 @@ export const Error: Story = {
 
 export const AllTypes: Story = {
   render: () => (
-    <div className="flex flex-col gap-4 w-[350px]">
+    <div className="flex w-[350px] flex-col gap-4">
       <div>
-        <label className="label block mb-2">텍스트</label>
+        <label className="label mb-2 block">텍스트</label>
         <Input type="text" placeholder="텍스트를 입력하세요" />
       </div>
       <div>
-        <label className="label block mb-2">이메일</label>
+        <label className="label mb-2 block">이메일</label>
         <Input type="email" placeholder="이메일을 입력하세요" />
       </div>
       <div>
-        <label className="label block mb-2">비밀번호</label>
+        <label className="label mb-2 block">비밀번호</label>
         <Input type="password" placeholder="비밀번호를 입력하세요" />
       </div>
       <div>
-        <label className="label block mb-2">숫자</label>
+        <label className="label mb-2 block">숫자</label>
         <Input type="number" placeholder="숫자를 입력하세요" />
       </div>
       <div>
-        <label className="label block mb-2">전화번호</label>
+        <label className="label mb-2 block">전화번호</label>
         <Input type="tel" placeholder="전화번호를 입력하세요" />
       </div>
       <div>
-        <label className="label block mb-2">URL</label>
+        <label className="label mb-2 block">URL</label>
         <Input type="url" placeholder="https://example.com" />
       </div>
       <div>
-        <label className="label block mb-2">검색</label>
+        <label className="label mb-2 block">검색</label>
         <Input type="search" placeholder="검색어를 입력하세요" />
       </div>
       <div>
-        <label className="label block mb-2">날짜</label>
+        <label className="label mb-2 block">날짜</label>
         <Input type="date" />
       </div>
       <div>
-        <label className="label block mb-2">시간</label>
+        <label className="label mb-2 block">시간</label>
         <Input type="time" />
       </div>
     </div>
@@ -128,21 +128,21 @@ export const AllTypes: Story = {
 
 export const States: Story = {
   render: () => (
-    <div className="flex flex-col gap-4 w-[350px]">
+    <div className="flex w-[350px] flex-col gap-4">
       <div>
-        <label className="label block mb-2">기본</label>
+        <label className="label mb-2 block">기본</label>
         <Input placeholder="기본 입력 필드" />
       </div>
       <div>
-        <label className="label block mb-2">값이 있는 경우</label>
+        <label className="label mb-2 block">값이 있는 경우</label>
         <Input defaultValue="입력된 값" />
       </div>
       <div>
-        <label className="label block mb-2">비활성화</label>
+        <label className="label mb-2 block">비활성화</label>
         <Input placeholder="비활성화된 입력 필드" disabled />
       </div>
       <div>
-        <label className="label block mb-2">에러 상태</label>
+        <label className="label mb-2 block">에러 상태</label>
         <Input
           placeholder="이메일을 입력하세요"
           type="email"
@@ -151,7 +151,7 @@ export const States: Story = {
         />
       </div>
       <div>
-        <label className="label block mb-2">에러 상태 (값 없음)</label>
+        <label className="label mb-2 block">에러 상태 (값 없음)</label>
         <Input placeholder="이메일을 입력하세요" type="email" aria-invalid={true} />
       </div>
     </div>
@@ -160,4 +160,3 @@ export const States: Story = {
     layout: 'padded',
   },
 };
-

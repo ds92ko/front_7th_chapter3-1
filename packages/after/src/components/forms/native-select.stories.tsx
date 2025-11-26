@@ -1,13 +1,13 @@
-import { Label } from '@/components/ui/label';
+import { Label } from '@/components/forms/label';
 import {
   NativeSelect,
   NativeSelectOptGroup,
   NativeSelectOption,
-} from '@/components/ui/native-select';
+} from '@/components/forms/native-select';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta = {
-  title: 'UI/NativeSelect',
+  title: 'Forms/NativeSelect',
   component: NativeSelect,
   parameters: {
     layout: 'centered',
