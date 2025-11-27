@@ -1,6 +1,6 @@
-import { describe, it, expect, beforeEach } from 'vitest';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { beforeEach, describe, expect, it } from 'vitest';
 import { ManagementPage } from '../ManagementPage';
 
 describe('ManagementPage - User Management', () => {
@@ -13,7 +13,7 @@ describe('ManagementPage - User Management', () => {
     render(<ManagementPage />);
 
     // 사용자 탭으로 전환
-    const userTab = screen.getByRole('button', { name: '사용자' });
+    const userTab = screen.getByRole('tab', { name: '사용자' });
     await user.click(userTab);
 
     // === 생성 ===
@@ -87,7 +87,7 @@ describe('ManagementPage - Post Management', () => {
 
     // 게시글 탭이 기본 선택되어 있는지 확인
     await waitFor(() => {
-      expect(screen.getByRole('button', { name: '게시글' })).toBeInTheDocument();
+      expect(screen.getByRole('tab', { name: '게시글' })).toBeInTheDocument();
     });
 
     // 기존 샘플 게시글이 표시되는지 확인
