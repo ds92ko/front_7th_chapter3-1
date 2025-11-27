@@ -45,6 +45,22 @@
   --info: oklch(0.55 0.15 240); /* #0288d1 - Blue 600 */
   --info-foreground: oklch(0.985 0 0); /* 흰색 */
 
+  /* Gray */
+  --gray: oklch(0.5 0 0); /* #808080 - 중간 회색 */
+  --gray-foreground: oklch(0.985 0 0); /* 흰색 */
+
+  /* Yellow */
+  --yellow: oklch(0.75 0.15 90); /* #fbc02d - Yellow 700 */
+  --yellow-foreground: oklch(0.15 0 0); /* 검은색 */
+
+  /* Purple */
+  --purple: oklch(0.55 0.2 300); /* #7b1fa2 - Purple 700 */
+  --purple-foreground: oklch(0.985 0 0); /* 흰색 */
+
+  /* Pink */
+  --pink: oklch(0.65 0.2 350); /* #c2185b - Pink 700 */
+  --pink-foreground: oklch(0.985 0 0); /* 흰색 */
+
   /* Borders and inputs */
   --border: oklch(0.9 0 0); /* #e5e7eb - Gray 200 */
   --input: oklch(0.9 0 0); /* #e5e7eb */
@@ -111,6 +127,22 @@
   --info: oklch(0.65 0.15 240); /* 밝은 파랑 */
   --info-foreground: oklch(0.98 0 0);
 
+  /* Gray - Lighter for dark mode */
+  --gray: oklch(0.6 0 0); /* 밝은 회색 */
+  --gray-foreground: oklch(0.98 0 0);
+
+  /* Yellow - Lighter for dark mode */
+  --yellow: oklch(0.8 0.15 90); /* 밝은 노랑 */
+  --yellow-foreground: oklch(0.15 0 0); /* 검은색 */
+
+  /* Purple - Lighter for dark mode */
+  --purple: oklch(0.65 0.2 300); /* 밝은 보라 */
+  --purple-foreground: oklch(0.98 0 0);
+
+  /* Pink - Lighter for dark mode */
+  --pink: oklch(0.7 0.2 350); /* 밝은 핑크 */
+  --pink-foreground: oklch(0.98 0 0);
+
   /* Borders and inputs */
   --border: oklch(0.3 0 0 / 0.5); /* 반투명 어두운 회색 */
   --input: oklch(0.3 0 0 / 0.6);
@@ -133,4 +165,3 @@
   --sidebar-border: oklch(0.3 0 0 / 0.5);
   --sidebar-ring: oklch(0.623 0.214 259.815);
 }
-
