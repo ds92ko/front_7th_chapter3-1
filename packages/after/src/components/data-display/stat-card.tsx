@@ -5,8 +5,8 @@ import type { ComponentProps } from 'react';
 const statCardVariants = cva('rounded-md border p-3 px-4', {
   variants: {
     variant: {
-      default: 'bg-accent border-accent-foreground/20',
-      info: 'bg-accent border-accent-foreground/20',
+      default: 'bg-primary/10 border-primary/30',
+      info: 'bg-info/10 border-info/30',
       success: 'bg-success/10 border-success/30',
       warning: 'bg-warning/10 border-warning/30',
       error: 'bg-destructive/10 border-destructive/30',
@@ -22,7 +22,7 @@ const statCardValueVariants = cva('', {
   variants: {
     variant: {
       default: 'text-primary',
-      info: 'text-primary',
+      info: 'text-info',
       success: 'text-success',
       warning: 'text-warning',
       error: 'text-destructive',
@@ -36,14 +36,16 @@ const statCardValueVariants = cva('', {
 
 interface StatCardProps extends ComponentProps<'div'>, VariantProps<typeof statCardVariants> {
   label: string;
-  value: number | string;
+  value: number;
 }
 
 function StatCard({ label, value, variant, className, ...props }: StatCardProps) {
   return (
     <div data-slot="stat-card" className={cn(statCardVariants({ variant, className }))} {...props}>
       <div className="caption text-muted-foreground mb-1">{label}</div>
-      <div className={cn('display-1', statCardValueVariants({ variant }))}>{value}</div>
+      <div className={cn('display-1 font-mono tabular-nums', statCardValueVariants({ variant }))}>
+        {value.toLocaleString()}
+      </div>
     </div>
   );
 }
