@@ -1,9 +1,18 @@
 import { StatCard } from '@/components/data-display/stat-card';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/data-display/table';
 import { Button } from '@/components/forms/button';
 import React, { useCallback, useEffect, useState } from 'react';
+import { Badge } from '../components/atoms/Badge';
 import { FormInput, FormSelect, FormTextarea } from '../components/molecules';
 import { Tab, Tabs } from '../components/navigation/tabs';
-import { Alert, Modal, Table } from '../components/organisms';
+import { Alert, Modal } from '../components/organisms';
 import type { Post } from '../services/postService';
 import { postService } from '../services/postService';
 import type { User } from '../services/userService';
@@ -313,6 +322,102 @@ export const ManagementPage: React.FC = () => {
 
   const stats = getStats();
 
+  // User 셀 렌더러
+  const userCellRenderers: Record<string, (user: User) => React.ReactNode> = {
+    role: user => <Badge userRole={user.role} showIcon />,
+    status: user => {
+      const badgeStatus =
+        user.status === 'active' ? 'published' : user.status === 'inactive' ? 'draft' : 'rejected';
+      return <Badge status={badgeStatus} showIcon />;
+    },
+    lastLogin: user => user.lastLogin || '-',
+    actions: user => (
+      <div className="flex gap-2">
+        <Button variant="default" size="sm" onClick={() => handleEdit(user)}>
+          수정
+        </Button>
+        <Button variant="destructive" size="sm" onClick={() => handleDelete(user.id)}>
+          삭제
+        </Button>
+      </div>
+    ),
+  };
+
+  // Post 셀 렌더러
+  const postCellRenderers: Record<string, (post: Post) => React.ReactNode> = {
+    category: post => {
+      const type =
+        post.category === 'development'
+          ? 'primary'
+          : post.category === 'design'
+            ? 'info'
+            : post.category === 'accessibility'
+              ? 'danger'
+              : 'secondary';
+      return (
+        <Badge type={type} pill>
+          {post.category}
+        </Badge>
+      );
+    },
+    status: post => <Badge status={post.status} showIcon />,
+    views: post => post.views.toLocaleString(),
+    actions: post => (
+      <div className="flex flex-wrap gap-2">
+        <Button variant="default" size="sm" onClick={() => handleEdit(post)}>
+          수정
+        </Button>
+        {post.status === 'draft' && (
+          <Button
+            variant="default"
+            size="sm"
+            onClick={() => handleStatusAction(post.id, 'publish')}
+          >
+            게시
+          </Button>
+        )}
+        {post.status === 'published' && (
+          <Button
+            variant="secondary"
+            size="sm"
+            onClick={() => handleStatusAction(post.id, 'archive')}
+          >
+            보관
+          </Button>
+        )}
+        {post.status === 'archived' && (
+          <Button
+            variant="default"
+            size="sm"
+            onClick={() => handleStatusAction(post.id, 'restore')}
+          >
+            복원
+          </Button>
+        )}
+        <Button variant="destructive" size="sm" onClick={() => handleDelete(post.id)}>
+          삭제
+        </Button>
+      </div>
+    ),
+  };
+
+  // 셀 렌더링 함수
+  const renderCellContent = (row: Entity, columnKey: string): React.ReactNode => {
+    const cellValue = row[columnKey as keyof Entity];
+
+    if (entityType === 'user' && isUser(row)) {
+      const renderer = userCellRenderers[columnKey];
+      return renderer ? renderer(row) : cellValue;
+    }
+
+    if (entityType === 'post' && isPost(row)) {
+      const renderer = postCellRenderers[columnKey];
+      return renderer ? renderer(row) : cellValue;
+    }
+
+    return cellValue;
+  };
+
   return (
     <div className="bg-muted min-h-screen">
       <div className="mx-auto max-w-[1200px] p-5">
@@ -358,21 +463,30 @@ export const ManagementPage: React.FC = () => {
               <StatCard variant="secondary" label={stats.stat4.label} value={stats.stat4.value} />
             </div>
 
-            <div style={{ border: '1px solid #ddd', background: 'white', overflow: 'auto' }}>
-              <Table
-                columns={renderTableColumns()}
-                data={data}
-                striped
-                hover
-                entityType={entityType}
-                onEdit={item => {
-                  handleEdit(item);
-                }}
-                onDelete={handleDelete}
-                onPublish={id => handleStatusAction(id, 'publish')}
-                onArchive={id => handleStatusAction(id, 'archive')}
-                onRestore={id => handleStatusAction(id, 'restore')}
-              />
+            <div className="border-border bg-card overflow-auto rounded-lg border">
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    {renderTableColumns().map(column => (
+                      <TableHead
+                        key={column.key}
+                        style={column.width ? { width: column.width } : undefined}
+                      >
+                        {column.header}
+                      </TableHead>
+                    ))}
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {data.map((row, rowIndex) => (
+                    <TableRow key={rowIndex}>
+                      {renderTableColumns().map(column => (
+                        <TableCell key={column.key}>{renderCellContent(row, column.key)}</TableCell>
+                      ))}
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
             </div>
           </div>
         </div>
