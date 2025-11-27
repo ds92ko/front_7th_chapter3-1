@@ -24,7 +24,6 @@ const alertVariants = cva(
 interface AlertProps extends ComponentProps<'div'>, VariantProps<typeof alertVariants> {
   title?: string;
   onClose?: () => void;
-  showIcon?: boolean;
 }
 
 const variantIcons = {
@@ -35,24 +34,14 @@ const variantIcons = {
   error: XCircle,
 };
 
-function Alert({
-  children,
-  variant = 'default',
-  title,
-  onClose,
-  showIcon = true,
-  className,
-  ...props
-}: AlertProps) {
+function Alert({ children, variant = 'default', title, onClose, className, ...props }: AlertProps) {
   const Icon = variantIcons[variant || 'default'];
 
   return (
     <div data-slot="alert" className={cn(alertVariants({ variant, className }))} {...props}>
-      {showIcon && (
-        <div className="shrink-0">
-          <Icon className="size-5" />
-        </div>
-      )}
+      <div className="shrink-0">
+        <Icon className="size-5" />
+      </div>
       <div className="min-w-0 flex-1">
         {title && <div className="label mb-1">{title}</div>}
         <div className="body-small">{children}</div>
