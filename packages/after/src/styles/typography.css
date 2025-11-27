@@ -3,6 +3,21 @@
    ============================================ */
 
 @layer components {
+  /* Display Text */
+  .display-1 {
+    font-family: var(--font-family-sans);
+    font-size: var(--text-4xl); /* 24px */
+    font-weight: var(--font-bold); /* 700 */
+    line-height: var(--line-height-tight); /* 1.25 */
+  }
+
+  .display-2 {
+    font-family: var(--font-family-sans);
+    font-size: var(--text-5xl); /* 28px */
+    font-weight: var(--font-bold); /* 700 */
+    line-height: var(--line-height-tight); /* 1.25 */
+  }
+
   /* Headings */
   .heading-1 {
     font-family: var(--font-family-sans);
