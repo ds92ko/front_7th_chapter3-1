@@ -7,12 +7,13 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/data-display/table';
+import { Alert } from '@/components/feedback/alert';
 import { Button } from '@/components/forms/button';
 import React, { useCallback, useEffect, useState } from 'react';
 import { Badge } from '../components/atoms/Badge';
 import { FormInput, FormSelect, FormTextarea } from '../components/molecules';
 import { Tab, Tabs } from '../components/navigation/tabs';
-import { Alert, Modal } from '../components/organisms';
+import { Modal } from '../components/organisms';
 import type { Post } from '../services/postService';
 import { postService } from '../services/postService';
 import type { User } from '../services/userService';
@@ -435,21 +436,18 @@ export const ManagementPage: React.FC = () => {
               </Button>
             </div>
 
-            {showSuccessAlert && (
-              <div style={{ marginBottom: '10px' }}>
+            <div className="mb-4">
+              {showSuccessAlert && (
                 <Alert variant="success" title="성공" onClose={() => setShowSuccessAlert(false)}>
                   {alertMessage}
                 </Alert>
-              </div>
-            )}
-
-            {showErrorAlert && (
-              <div style={{ marginBottom: '10px' }}>
+              )}
+              {showErrorAlert && (
                 <Alert variant="error" title="오류" onClose={() => setShowErrorAlert(false)}>
                   {errorMessage}
                 </Alert>
-              </div>
-            )}
+              )}
+            </div>
 
             <div className="mb-4 grid grid-cols-[repeat(auto-fit,minmax(130px,1fr))] gap-2">
               <StatCard variant="info" label="전체" value={stats.total} />
