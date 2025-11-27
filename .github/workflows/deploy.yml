@@ -35,21 +35,21 @@ jobs:
       - name: Build after package
         run: |
           cd packages/after
-          VITE_BASE_PATH=/app/ pnpm run build
+          pnpm run build
         env:
           NODE_ENV: production
 
       - name: Build Storybook
         run: |
           cd packages/after
-          pnpm run build-storybook
+          STORYBOOK_BASE_PATH=/storybook/ pnpm run build-storybook
 
       - name: Prepare deployment
         run: |
           mkdir -p deploy
-          cp -r packages/after/storybook-static/* deploy/
-          mkdir -p deploy/app
-          cp -r packages/after/dist/* deploy/app/
+          cp -r packages/after/dist/* deploy/
+          mkdir -p deploy/storybook
+          cp -r packages/after/storybook-static/* deploy/storybook/
 
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v4
