@@ -1,4 +1,4 @@
-import { Header } from '@/components/layout';
+import { Header } from '@/components/layout/header';
 import { ThemeProvider } from '@/contexts/theme.provider';
 import { ManagementPage } from '@/pages/ManagementPage';
 
