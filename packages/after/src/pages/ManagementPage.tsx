@@ -465,7 +465,7 @@ export const ManagementPage: React.FC = () => {
   };
 
   return (
-    <div className="bg-muted">
+    <div className="bg-muted min-h-[calc(100vh-4rem-1px)]">
       <div className="mx-auto max-w-[1200px] p-5">
         <div className="mb-5">
           <h1 className="heading-1 text-foreground mb-1">관리 시스템</h1>
