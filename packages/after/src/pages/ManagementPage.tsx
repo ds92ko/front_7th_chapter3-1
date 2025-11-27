@@ -457,31 +457,29 @@ export const ManagementPage: React.FC = () => {
               <StatCard variant="secondary" label={stats.stat4.label} value={stats.stat4.value} />
             </div>
 
-            <div className="border-border bg-card overflow-auto rounded-lg border">
-              <Table>
-                <TableHeader>
-                  <TableRow>
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  {renderTableColumns().map(column => (
+                    <TableHead
+                      key={column.key}
+                      style={column.width ? { width: column.width } : undefined}
+                    >
+                      {column.header}
+                    </TableHead>
+                  ))}
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {data.map((row, rowIndex) => (
+                  <TableRow key={rowIndex}>
                     {renderTableColumns().map(column => (
-                      <TableHead
-                        key={column.key}
-                        style={column.width ? { width: column.width } : undefined}
-                      >
-                        {column.header}
-                      </TableHead>
+                      <TableCell key={column.key}>{renderCellContent(row, column.key)}</TableCell>
                     ))}
                   </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {data.map((row, rowIndex) => (
-                    <TableRow key={rowIndex}>
-                      {renderTableColumns().map(column => (
-                        <TableCell key={column.key}>{renderCellContent(row, column.key)}</TableCell>
-                      ))}
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </div>
+                ))}
+              </TableBody>
+            </Table>
           </div>
         </div>
       </div>

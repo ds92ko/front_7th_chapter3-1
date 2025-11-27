@@ -3,7 +3,10 @@ import type { ComponentProps } from 'react';
 
 function Table({ className, ...props }: ComponentProps<'table'>) {
   return (
-    <div data-slot="table-container" className="relative w-full overflow-x-auto">
+    <div
+      data-slot="table-container"
+      className="border-border bg-card relative w-full overflow-auto rounded-lg border"
+    >
       <table
         data-slot="table"
         className={cn('body-small w-full caption-bottom', className)}

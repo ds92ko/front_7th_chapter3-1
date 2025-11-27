@@ -255,7 +255,4 @@ export const Complete: Story = {
       </TableFooter>
     </Table>
   ),
-  parameters: {
-    layout: 'padded',
-  },
 };
