@@ -7,11 +7,7 @@ function Table({ className, ...props }: ComponentProps<'table'>) {
       data-slot="table-container"
       className="border-border bg-card relative w-full overflow-auto rounded-lg border"
     >
-      <table
-        data-slot="table"
-        className={cn('body-small w-full caption-bottom', className)}
-        {...props}
-      />
+      <table data-slot="table" className={cn('body w-full caption-bottom', className)} {...props} />
     </div>
   );
 }
@@ -40,7 +36,7 @@ function TableFooter({ className, ...props }: ComponentProps<'tfoot'>) {
   return (
     <tfoot
       data-slot="table-footer"
-      className={cn('bg-muted/50 label-small border-t [&>tr]:last:border-b-0', className)}
+      className={cn('bg-muted/50 label border-t [&>tr]:last:border-b-0', className)}
       {...props}
     />
   );
@@ -64,7 +60,7 @@ function TableHead({ className, ...props }: ComponentProps<'th'>) {
     <th
       data-slot="table-head"
       className={cn(
-        'text-foreground label-small h-10 px-2 text-left align-middle whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]',
+        'text-foreground label h-10 p-2 text-left align-middle whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]',
         className
       )}
       {...props}
@@ -77,7 +73,7 @@ function TableCell({ className, ...props }: ComponentProps<'td'>) {
     <td
       data-slot="table-cell"
       className={cn(
-        'body-small p-2 align-middle whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]',
+        'body p-2 align-middle whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]',
         className
       )}
       {...props}
