@@ -1,6 +1,8 @@
+import { StatCard } from '@/components/data-display/stat-card';
+import { Button } from '@/components/forms/button';
 import React, { useCallback, useEffect, useState } from 'react';
-import { Button } from '../components/atoms';
 import { FormInput, FormSelect, FormTextarea } from '../components/molecules';
+import { Tab, Tabs } from '../components/navigation/tabs';
 import { Alert, Modal, Table } from '../components/organisms';
 import type { Post } from '../services/postService';
 import { postService } from '../services/postService';
@@ -312,72 +314,22 @@ export const ManagementPage: React.FC = () => {
   const stats = getStats();
 
   return (
-    <div style={{ minHeight: '100vh', background: '#f0f0f0' }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '20px' }}>
-        <div style={{ marginBottom: '20px' }}>
-          <h1
-            style={{
-              fontSize: '24px',
-              fontWeight: 'bold',
-              marginBottom: '5px',
-              color: '#333',
-            }}
-          >
-            관리 시스템
-          </h1>
-          <p style={{ color: '#666', fontSize: '14px' }}>사용자와 게시글을 관리하세요</p>
+    <div className="bg-muted min-h-screen">
+      <div className="mx-auto max-w-[1200px] p-5">
+        <div className="mb-5">
+          <h1 className="heading-1 text-foreground mb-1">관리 시스템</h1>
+          <p className="body-small text-muted-foreground">사용자와 게시글을 관리하세요</p>
         </div>
 
-        <div
-          style={{
-            background: 'white',
-            border: '1px solid #ddd',
-            padding: '10px',
-          }}
-        >
-          <div
-            style={{
-              marginBottom: '15px',
-              borderBottom: '2px solid #ccc',
-              paddingBottom: '5px',
-            }}
-          >
-            <button
-              onClick={() => setEntityType('post')}
-              style={{
-                padding: '8px 16px',
-                marginRight: '5px',
-                fontSize: '14px',
-                fontWeight: entityType === 'post' ? 'bold' : 'normal',
-                border: '1px solid #999',
-                background: entityType === 'post' ? '#1976d2' : '#f5f5f5',
-                color: entityType === 'post' ? 'white' : '#333',
-                cursor: 'pointer',
-                borderRadius: '3px',
-              }}
-            >
-              게시글
-            </button>
-            <button
-              onClick={() => setEntityType('user')}
-              style={{
-                padding: '8px 16px',
-                fontSize: '14px',
-                fontWeight: entityType === 'user' ? 'bold' : 'normal',
-                border: '1px solid #999',
-                background: entityType === 'user' ? '#1976d2' : '#f5f5f5',
-                color: entityType === 'user' ? 'white' : '#333',
-                cursor: 'pointer',
-                borderRadius: '3px',
-              }}
-            >
-              사용자
-            </button>
-          </div>
+        <div className="border-border bg-card rounded-xl border p-3">
+          <Tabs value={entityType} onChange={value => setEntityType(value as EntityType)}>
+            <Tab value="post">게시글</Tab>
+            <Tab value="user">사용자</Tab>
+          </Tabs>
 
           <div>
-            <div style={{ marginBottom: '15px', textAlign: 'right' }}>
-              <Button variant="primary" size="md" onClick={() => setIsCreateModalOpen(true)}>
+            <div className="mb-4 text-right">
+              <Button variant="default" onClick={() => setIsCreateModalOpen(true)}>
                 새로 만들기
               </Button>
             </div>
@@ -398,91 +350,12 @@ export const ManagementPage: React.FC = () => {
               </div>
             )}
 
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
-                gap: '10px',
-                marginBottom: '15px',
-              }}
-            >
-              <div
-                style={{
-                  padding: '12px 15px',
-                  background: '#e3f2fd',
-                  border: '1px solid #90caf9',
-                  borderRadius: '3px',
-                }}
-              >
-                <div style={{ fontSize: '12px', color: '#666', marginBottom: '4px' }}>전체</div>
-                <div style={{ fontSize: '24px', fontWeight: 'bold', color: '#1976d2' }}>
-                  {stats.total}
-                </div>
-              </div>
-
-              <div
-                style={{
-                  padding: '12px 15px',
-                  background: '#e8f5e9',
-                  border: '1px solid #81c784',
-                  borderRadius: '3px',
-                }}
-              >
-                <div style={{ fontSize: '12px', color: '#666', marginBottom: '4px' }}>
-                  {stats.stat1.label}
-                </div>
-                <div style={{ fontSize: '24px', fontWeight: 'bold', color: '#388e3c' }}>
-                  {stats.stat1.value}
-                </div>
-              </div>
-
-              <div
-                style={{
-                  padding: '12px 15px',
-                  background: '#fff3e0',
-                  border: '1px solid #ffb74d',
-                  borderRadius: '3px',
-                }}
-              >
-                <div style={{ fontSize: '12px', color: '#666', marginBottom: '4px' }}>
-                  {stats.stat2.label}
-                </div>
-                <div style={{ fontSize: '24px', fontWeight: 'bold', color: '#f57c00' }}>
-                  {stats.stat2.value}
-                </div>
-              </div>
-
-              <div
-                style={{
-                  padding: '12px 15px',
-                  background: '#ffebee',
-                  border: '1px solid #e57373',
-                  borderRadius: '3px',
-                }}
-              >
-                <div style={{ fontSize: '12px', color: '#666', marginBottom: '4px' }}>
-                  {stats.stat3.label}
-                </div>
-                <div style={{ fontSize: '24px', fontWeight: 'bold', color: '#d32f2f' }}>
-                  {stats.stat3.value}
-                </div>
-              </div>
-
-              <div
-                style={{
-                  padding: '12px 15px',
-                  background: '#f5f5f5',
-                  border: '1px solid #bdbdbd',
-                  borderRadius: '3px',
-                }}
-              >
-                <div style={{ fontSize: '12px', color: '#666', marginBottom: '4px' }}>
-                  {stats.stat4.label}
-                </div>
-                <div style={{ fontSize: '24px', fontWeight: 'bold', color: '#424242' }}>
-                  {stats.stat4.value}
-                </div>
-              </div>
+            <div className="mb-4 grid grid-cols-[repeat(auto-fit,minmax(130px,1fr))] gap-2">
+              <StatCard variant="info" label="전체" value={stats.total} />
+              <StatCard variant="success" label={stats.stat1.label} value={stats.stat1.value} />
+              <StatCard variant="warning" label={stats.stat2.label} value={stats.stat2.value} />
+              <StatCard variant="error" label={stats.stat3.label} value={stats.stat3.value} />
+              <StatCard variant="secondary" label={stats.stat4.label} value={stats.stat4.value} />
             </div>
 
             <div style={{ border: '1px solid #ddd', background: 'white', overflow: 'auto' }}>
@@ -518,7 +391,6 @@ export const ManagementPage: React.FC = () => {
           <>
             <Button
               variant="secondary"
-              size="md"
               onClick={() => {
                 setIsCreateModalOpen(false);
                 setFormData({});
@@ -526,7 +398,7 @@ export const ManagementPage: React.FC = () => {
             >
               취소
             </Button>
-            <Button variant="primary" size="md" onClick={handleCreate}>
+            <Button variant="default" onClick={handleCreate}>
               생성
             </Button>
           </>
@@ -658,7 +530,6 @@ export const ManagementPage: React.FC = () => {
           <>
             <Button
               variant="secondary"
-              size="md"
               onClick={() => {
                 setIsEditModalOpen(false);
                 setFormData({});
@@ -667,7 +538,7 @@ export const ManagementPage: React.FC = () => {
             >
               취소
             </Button>
-            <Button variant="primary" size="md" onClick={handleUpdate}>
+            <Button variant="default" onClick={handleUpdate}>
               수정 완료
             </Button>
           </>
