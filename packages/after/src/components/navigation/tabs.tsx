@@ -1,6 +1,6 @@
-import { Button } from '@/components/forms/button';
 import type { TabProps, TabsContextValue, TabsProps } from '@/components/navigation/tabs.types';
 import { cn } from '@/lib/utils';
+import { cva } from 'class-variance-authority';
 import { createContext, useContext } from 'react';
 
 const TabsContext = createContext<TabsContextValue | null>(null);
@@ -15,14 +15,36 @@ function useTabsContext() {
   return context;
 }
 
+const tabVariants = cva(
+  'label-large relative px-4 py-2 transition-colors border-b-2 focus:ring-ring focus:ring-2 focus:ring-offset-2 focus:outline-none',
+  {
+    variants: {
+      active: {
+        true: 'text-primary border-primary',
+        false:
+          'text-muted-foreground hover:text-foreground hover:border-muted-foreground border-transparent',
+      },
+    },
+    defaultVariants: {
+      active: false,
+    },
+  }
+);
+
 function Tab({ value, children }: TabProps) {
   const { value: selectedValue, onChange } = useTabsContext();
   const isActive = selectedValue === value;
 
   return (
-    <Button variant={isActive ? 'default' : 'outline'} size="lg" onClick={() => onChange(value)}>
+    <button
+      type="button"
+      role="tab"
+      aria-selected={isActive}
+      onClick={() => onChange(value)}
+      className={cn(tabVariants({ active: isActive }))}
+    >
       {children}
-    </Button>
+    </button>
   );
 }
 
@@ -34,10 +56,8 @@ function Tabs({ value, onChange, children, className }: TabsProps) {
 
   return (
     <TabsContext.Provider value={contextValue}>
-      <div className="border-border mb-3 border-b pb-3">
-        <div className={cn('inline-flex items-center justify-start gap-2', className)}>
-          {children}
-        </div>
+      <div className="border-border mb-3 border-b">
+        <div className={cn('inline-flex items-center justify-start', className)}>{children}</div>
       </div>
     </TabsContext.Provider>
   );
