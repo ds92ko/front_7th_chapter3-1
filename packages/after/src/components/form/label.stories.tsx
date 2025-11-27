@@ -1,9 +1,9 @@
-import { Input } from '@/components/forms/input';
-import { Label } from '@/components/forms/label';
+import { Input } from '@/components/form/input';
+import { Label } from '@/components/form/label';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta = {
-  title: 'Forms/Label',
+  title: 'Form/Label',
   component: Label,
   parameters: {
     layout: 'centered',

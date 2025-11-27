@@ -9,7 +9,7 @@ import {
   TableRow,
 } from '@/components/data-display/table';
 import { Alert } from '@/components/feedback/alert';
-import { Button } from '@/components/forms/button';
+import { Button } from '@/components/form/button';
 import React, { useCallback, useEffect, useState } from 'react';
 import { FormInput, FormSelect, FormTextarea } from '../components/molecules';
 import { Tab, Tabs } from '../components/navigation/tabs';

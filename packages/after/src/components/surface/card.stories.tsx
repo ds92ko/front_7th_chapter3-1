@@ -1,6 +1,6 @@
 import { MoreVertical } from 'lucide-react';
 
-import { Button } from '@/components/forms/button';
+import { Button } from '@/components/form/button';
 import {
   Card,
   CardAction,

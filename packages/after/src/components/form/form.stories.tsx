@@ -1,4 +1,4 @@
-import { Button } from '@/components/forms/button';
+import { Button } from '@/components/form/button';
 import {
   Form,
   FormControl,
@@ -7,8 +7,8 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/forms/form';
-import { Input } from '@/components/forms/input';
+} from '@/components/form/form';
+import { Input } from '@/components/form/input';
 import { zodResolver } from '@hookform/resolvers/zod';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useEffect } from 'react';
@@ -16,7 +16,7 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 const meta = {
-  title: 'Forms/Form',
+  title: 'Form/Form',
   parameters: {
     layout: 'centered',
   },

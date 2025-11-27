@@ -1,10 +1,10 @@
 import { ChevronRight } from 'lucide-react';
 
-import { Button } from '@/components/forms/button';
+import { Button } from '@/components/form/button';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta = {
-  title: 'Forms/Button',
+  title: 'Form/Button',
   component: Button,
   parameters: {
     layout: 'centered',
@@ -13,7 +13,17 @@ const meta = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['default', 'destructive', 'success', 'warning', 'info', 'outline', 'secondary', 'ghost', 'link'],
+      options: [
+        'default',
+        'destructive',
+        'success',
+        'warning',
+        'info',
+        'outline',
+        'secondary',
+        'ghost',
+        'link',
+      ],
       description: '버튼의 스타일 변형',
     },
     size: {
