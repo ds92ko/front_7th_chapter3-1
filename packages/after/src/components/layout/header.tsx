@@ -8,7 +8,7 @@ export const Header = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <header className="border-border bg-card sticky top-0 z-[1000] border-b shadow-sm">
+    <header className="border-border bg-card sticky top-0 z-[100] border-b shadow-sm">
       <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-between px-6">
         {/* Logo */}
         <div className="flex items-center gap-3">
