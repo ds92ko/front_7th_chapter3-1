@@ -17,7 +17,13 @@ function Table({ className, ...props }: ComponentProps<'table'>) {
 }
 
 function TableHeader({ className, ...props }: ComponentProps<'thead'>) {
-  return <thead data-slot="table-header" className={cn('[&_tr]:border-b', className)} {...props} />;
+  return (
+    <thead
+      data-slot="table-header"
+      className={cn('bg-muted/50 [&_tr]:border-b', className)}
+      {...props}
+    />
+  );
 }
 
 function TableBody({ className, ...props }: ComponentProps<'tbody'>) {
@@ -45,7 +51,7 @@ function TableRow({ className, ...props }: ComponentProps<'tr'>) {
     <tr
       data-slot="table-row"
       className={cn(
-        'hover:bg-muted/50 data-[state=selected]:bg-muted border-b transition-colors',
+        'data-[state=selected]:bg-muted in-[tbody]:hover:bg-muted/50 border-b transition-colors in-[thead]:hover:bg-transparent',
         className
       )}
       {...props}
@@ -83,7 +89,7 @@ function TableCaption({ className, ...props }: ComponentProps<'caption'>) {
   return (
     <caption
       data-slot="table-caption"
-      className={cn('text-muted-foreground caption mt-4', className)}
+      className={cn('text-muted-foreground caption p-2', className)}
       {...props}
     />
   );
