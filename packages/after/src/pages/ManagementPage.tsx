@@ -581,6 +581,7 @@ export const ManagementPage: React.FC = () => {
                           <FormLabel>역할</FormLabel>
                           <FormControl>
                             <NativeSelect
+                              name="role"
                               value={field.value || 'user'}
                               onChange={e => {
                                 const value = e.target.value;
@@ -610,6 +611,7 @@ export const ManagementPage: React.FC = () => {
                           <FormLabel>상태</FormLabel>
                           <FormControl>
                             <NativeSelect
+                              name="status"
                               value={field.value || 'active'}
                               onChange={e => {
                                 const value = e.target.value;
@@ -674,6 +676,7 @@ export const ManagementPage: React.FC = () => {
                           <FormLabel>카테고리</FormLabel>
                           <FormControl>
                             <NativeSelect
+                              name="category"
                               value={field.value || ''}
                               onChange={e => field.onChange(e.target.value)}
                             >
@@ -800,6 +803,7 @@ export const ManagementPage: React.FC = () => {
                           <FormLabel>역할</FormLabel>
                           <FormControl>
                             <NativeSelect
+                              name="role"
                               value={field.value || 'user'}
                               onChange={e => {
                                 const value = e.target.value;
@@ -829,6 +833,7 @@ export const ManagementPage: React.FC = () => {
                           <FormLabel>상태</FormLabel>
                           <FormControl>
                             <NativeSelect
+                              name="status"
                               value={field.value || 'active'}
                               onChange={e => {
                                 const value = e.target.value;
@@ -893,6 +898,7 @@ export const ManagementPage: React.FC = () => {
                           <FormLabel>카테고리</FormLabel>
                           <FormControl>
                             <NativeSelect
+                              name="category"
                               value={field.value || ''}
                               onChange={e => field.onChange(e.target.value)}
                             >
