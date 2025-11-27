@@ -48,11 +48,14 @@ jobs:
           pnpm run build
         env:
           NODE_ENV: production
+          VITE_BASE_PATH: /${{ github.event.repository.name }}/
 
       - name: Build Storybook
         run: |
           cd packages/after
-          STORYBOOK_BASE_PATH=/storybook/ pnpm run build-storybook
+          pnpm run build-storybook
+        env:
+          STORYBOOK_BASE_PATH: /${{ github.event.repository.name }}/storybook/
 
       - name: Copy Storybook to dist
         run: |

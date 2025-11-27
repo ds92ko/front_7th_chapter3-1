@@ -5,7 +5,9 @@ import { defineConfig } from 'vite';
 import { defineConfig as defineTestConfig, mergeConfig } from 'vitest/config';
 
 // https://vite.dev/config/
+
 const viteConfig = defineConfig({
+  base: process.env.VITE_BASE_PATH || '/',
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
