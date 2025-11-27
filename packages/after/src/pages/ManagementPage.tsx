@@ -1,3 +1,4 @@
+import { Badge } from '@/components/data-display/badge';
 import { StatCard } from '@/components/data-display/stat-card';
 import {
   Table,
@@ -10,7 +11,6 @@ import {
 import { Alert } from '@/components/feedback/alert';
 import { Button } from '@/components/forms/button';
 import React, { useCallback, useEffect, useState } from 'react';
-import { Badge } from '../components/atoms/Badge';
 import { FormInput, FormSelect, FormTextarea } from '../components/molecules';
 import { Tab, Tabs } from '../components/navigation/tabs';
 import { Modal } from '../components/organisms';
@@ -248,22 +248,18 @@ export const ManagementPage: React.FC = () => {
         stat1: {
           label: '활성',
           value: users.filter(u => u.status === 'active').length,
-          color: '#2e7d32',
         },
         stat2: {
           label: '비활성',
           value: users.filter(u => u.status === 'inactive').length,
-          color: '#ed6c02',
         },
         stat3: {
           label: '정지',
           value: users.filter(u => u.status === 'suspended').length,
-          color: '#d32f2f',
         },
         stat4: {
           label: '관리자',
           value: users.filter(u => u.role === 'admin').length,
-          color: '#1976d2',
         },
       };
     } else {
@@ -273,22 +269,18 @@ export const ManagementPage: React.FC = () => {
         stat1: {
           label: '게시됨',
           value: posts.filter(p => p.status === 'published').length,
-          color: '#2e7d32',
         },
         stat2: {
           label: '임시저장',
           value: posts.filter(p => p.status === 'draft').length,
-          color: '#ed6c02',
         },
         stat3: {
           label: '보관됨',
           value: posts.filter(p => p.status === 'archived').length,
-          color: 'rgba(0, 0, 0, 0.6)',
         },
         stat4: {
           label: '총 조회수',
           value: posts.reduce((sum, p) => sum + p.views, 0),
-          color: '#1976d2',
         },
       };
     }
@@ -324,12 +316,32 @@ export const ManagementPage: React.FC = () => {
   const stats = getStats();
 
   // User 셀 렌더러
+  const userRoleMap: Record<
+    User['role'],
+    { variant: 'purple' | 'orange' | 'primary' | 'gray'; label: string }
+  > = {
+    admin: { variant: 'purple', label: '관리자' },
+    moderator: { variant: 'orange', label: '운영자' },
+    user: { variant: 'primary', label: '사용자' },
+  };
+
+  const userStatusMap: Record<
+    User['status'],
+    { variant: 'green' | 'gray' | 'red'; label: string }
+  > = {
+    active: { variant: 'green', label: '활성' },
+    inactive: { variant: 'gray', label: '비활성' },
+    suspended: { variant: 'red', label: '정지' },
+  };
+
   const userCellRenderers: Record<string, (user: User) => React.ReactNode> = {
-    role: user => <Badge userRole={user.role} showIcon />,
+    role: user => {
+      const config = userRoleMap[user.role];
+      return <Badge variant={config.variant}>{config.label}</Badge>;
+    },
     status: user => {
-      const badgeStatus =
-        user.status === 'active' ? 'published' : user.status === 'inactive' ? 'draft' : 'rejected';
-      return <Badge status={badgeStatus} showIcon />;
+      const config = userStatusMap[user.status];
+      return <Badge variant={config.variant}>{config.label}</Badge>;
     },
     lastLogin: user => user.lastLogin || '-',
     actions: user => (
@@ -345,23 +357,36 @@ export const ManagementPage: React.FC = () => {
   };
 
   // Post 셀 렌더러
+  const postCategoryMap: Partial<
+    Record<string, { variant: 'primary' | 'pink' | 'green' | 'secondary' }>
+  > = {
+    development: { variant: 'primary' },
+    design: { variant: 'pink' },
+    accessibility: { variant: 'green' },
+  };
+
+  const postStatusMap: Record<
+    Post['status'],
+    { variant: 'green' | 'yellow' | 'gray' | 'red'; label: string }
+  > = {
+    published: { variant: 'green', label: '게시됨' },
+    draft: { variant: 'yellow', label: '임시저장' },
+    archived: { variant: 'gray', label: '보관됨' },
+  };
+
   const postCellRenderers: Record<string, (post: Post) => React.ReactNode> = {
     category: post => {
-      const type =
-        post.category === 'development'
-          ? 'primary'
-          : post.category === 'design'
-            ? 'info'
-            : post.category === 'accessibility'
-              ? 'danger'
-              : 'secondary';
+      const config = postCategoryMap[post.category] || { variant: 'secondary' as const };
       return (
-        <Badge type={type} pill>
+        <Badge variant={config.variant} rounded>
           {post.category}
         </Badge>
       );
     },
-    status: post => <Badge status={post.status} showIcon />,
+    status: post => {
+      const config = postStatusMap[post.status];
+      return <Badge variant={config.variant}>{config.label}</Badge>;
+    },
     views: post => post.views.toLocaleString(),
     actions: post => (
       <div className="flex flex-wrap gap-2">
