@@ -13,7 +13,7 @@ const meta = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['default', 'destructive', 'outline', 'secondary', 'ghost', 'link'],
+      options: ['default', 'destructive', 'success', 'warning', 'info', 'outline', 'secondary', 'ghost', 'link'],
       description: '버튼의 스타일 변형',
     },
     size: {
@@ -47,6 +47,27 @@ export const Destructive: Story = {
   args: {
     children: '삭제',
     variant: 'destructive',
+  },
+};
+
+export const Success: Story = {
+  args: {
+    children: '성공',
+    variant: 'success',
+  },
+};
+
+export const Warning: Story = {
+  args: {
+    children: '경고',
+    variant: 'warning',
+  },
+};
+
+export const Info: Story = {
+  args: {
+    children: '정보',
+    variant: 'info',
   },
 };
 
@@ -124,6 +145,9 @@ export const AllVariants: Story = {
       <div className="flex flex-wrap gap-2">
         <Button variant="default">기본</Button>
         <Button variant="destructive">위험</Button>
+        <Button variant="success">성공</Button>
+        <Button variant="warning">경고</Button>
+        <Button variant="info">정보</Button>
         <Button variant="outline">외곽선</Button>
         <Button variant="secondary">보조</Button>
         <Button variant="ghost">고스트</Button>

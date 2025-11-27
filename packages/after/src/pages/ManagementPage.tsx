@@ -369,7 +369,7 @@ export const ManagementPage: React.FC = () => {
         </Button>
         {post.status === 'draft' && (
           <Button
-            variant="default"
+            variant="success"
             size="sm"
             onClick={() => handleStatusAction(post.id, 'publish')}
           >
@@ -386,11 +386,7 @@ export const ManagementPage: React.FC = () => {
           </Button>
         )}
         {post.status === 'archived' && (
-          <Button
-            variant="default"
-            size="sm"
-            onClick={() => handleStatusAction(post.id, 'restore')}
-          >
+          <Button variant="info" size="sm" onClick={() => handleStatusAction(post.id, 'restore')}>
             복원
           </Button>
         )}
