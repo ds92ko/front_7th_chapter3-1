@@ -5,15 +5,15 @@ import type { ComponentProps } from 'react';
 function NativeSelect({ className, ...props }: ComponentProps<'select'>) {
   return (
     <div
-      className="group/native-select relative w-fit has-[select:disabled]:opacity-50"
+      className="group/native-select relative w-full has-[select:disabled]:opacity-50"
       data-slot="native-select-wrapper"
     >
       <select
         data-slot="native-select"
         className={cn(
-          'border-input placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 dark:hover:bg-input/50 body-small h-9 w-full min-w-0 appearance-none rounded-md border bg-transparent px-3 py-2 pr-9 shadow-sm transition-colors outline-none disabled:pointer-events-none disabled:cursor-not-allowed',
+          'border-input placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground body-small h-9 w-full min-w-0 appearance-none rounded-md border bg-transparent px-3 py-2 pr-9 shadow-sm transition-colors outline-none disabled:pointer-events-none disabled:cursor-not-allowed',
           'focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]',
-          'aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive',
+          'aria-invalid:ring-destructive/20 aria-invalid:border-destructive',
           className
         )}
         {...props}
