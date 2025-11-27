@@ -357,7 +357,11 @@ export const ManagementPage: React.FC = () => {
   const userCellRenderers: Record<string, (user: User) => React.ReactNode> = {
     role: user => {
       const config = userRoleMap[user.role];
-      return <Badge variant={config.variant}>{config.label}</Badge>;
+      return (
+        <Badge variant={config.variant} rounded>
+          {config.label}
+        </Badge>
+      );
     },
     status: user => {
       const config = userStatusMap[user.status];
