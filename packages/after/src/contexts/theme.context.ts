@@ -1,7 +1,12 @@
 'use client';
 
-import type { ThemeContextType } from '@/contexts/theme.types';
 import { createContext, useContext } from 'react';
+import type { Theme } from './theme.provider';
+
+export interface ThemeContextType {
+  theme: Theme;
+  toggleTheme: () => void;
+}
 
 export const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
