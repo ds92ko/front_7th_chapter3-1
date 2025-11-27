@@ -10,7 +10,7 @@ import {
   DialogTrigger,
 } from '@/components/overlay';
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { useState } from 'react';
+import { useState, type ReactNode } from 'react';
 
 const meta = {
   title: 'Overlay/Dialog',
@@ -29,7 +29,7 @@ function DialogWrapper({
   children,
   defaultOpen = false,
 }: {
-  children: (open: boolean, setOpen: (open: boolean) => void) => React.ReactNode;
+  children: (open: boolean, setOpen: (open: boolean) => void) => ReactNode;
   defaultOpen?: boolean;
 }) {
   const [open, setOpen] = useState(defaultOpen);

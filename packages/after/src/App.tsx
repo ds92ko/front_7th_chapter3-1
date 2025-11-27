@@ -1,6 +1,6 @@
-import { Header } from '@/components/layout/header';
+import { Header } from '@/components/layout';
 import { ThemeProvider } from '@/contexts/theme.provider';
-import { ManagementPage } from '@/pages/ManagementPage';
+import { ManagementPage } from '@/pages/management';
 
 export const App = () => {
   return (
