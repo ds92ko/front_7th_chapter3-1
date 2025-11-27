@@ -1,7 +1,6 @@
-import { ChevronRight } from 'lucide-react';
-
-import { Button } from '@/components/form/button';
+import { Button } from '@/components/form';
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { ChevronRight } from 'lucide-react';
 
 const meta = {
   title: 'Form/Button',

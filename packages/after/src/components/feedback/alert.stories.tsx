@@ -1,4 +1,4 @@
-import { Alert } from '@/components/feedback/alert';
+import { Alert } from '@/components/feedback';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta = {

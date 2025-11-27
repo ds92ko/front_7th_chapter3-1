@@ -1,4 +1,4 @@
-import { Input } from '@/components/form/input';
+import { Input } from '@/components/form';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta = {

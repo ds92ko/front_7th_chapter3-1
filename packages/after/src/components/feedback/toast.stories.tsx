@@ -1,4 +1,4 @@
-import { Toast, ToastContainer } from '@/components/feedback/toast';
+import { Toast, ToastContainer } from '@/components/feedback';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 

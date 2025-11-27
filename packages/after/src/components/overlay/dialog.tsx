@@ -1,28 +1,36 @@
-import * as DialogPrimitive from '@radix-ui/react-dialog';
-import { X } from 'lucide-react';
-
 import { cn } from '@/lib/utils';
+import {
+  Close,
+  Content,
+  Description,
+  Overlay,
+  Portal,
+  Root,
+  Title,
+  Trigger,
+} from '@radix-ui/react-dialog';
+import { X } from 'lucide-react';
 import type { ComponentProps } from 'react';
 
-function Dialog({ ...props }: ComponentProps<typeof DialogPrimitive.Root>) {
-  return <DialogPrimitive.Root data-slot="dialog" {...props} />;
+function Dialog({ ...props }: ComponentProps<typeof Root>) {
+  return <Root data-slot="dialog" {...props} />;
 }
 
-function DialogTrigger({ ...props }: ComponentProps<typeof DialogPrimitive.Trigger>) {
-  return <DialogPrimitive.Trigger data-slot="dialog-trigger" {...props} />;
+function DialogTrigger({ ...props }: ComponentProps<typeof Trigger>) {
+  return <Trigger data-slot="dialog-trigger" {...props} />;
 }
 
-function DialogPortal({ ...props }: ComponentProps<typeof DialogPrimitive.Portal>) {
-  return <DialogPrimitive.Portal data-slot="dialog-portal" {...props} />;
+function DialogPortal({ ...props }: ComponentProps<typeof Portal>) {
+  return <Portal data-slot="dialog-portal" {...props} />;
 }
 
-function DialogClose({ ...props }: ComponentProps<typeof DialogPrimitive.Close>) {
-  return <DialogPrimitive.Close data-slot="dialog-close" {...props} />;
+function DialogClose({ ...props }: ComponentProps<typeof Close>) {
+  return <Close data-slot="dialog-close" {...props} />;
 }
 
-function DialogOverlay({ className, ...props }: ComponentProps<typeof DialogPrimitive.Overlay>) {
+function DialogOverlay({ className, ...props }: ComponentProps<typeof Overlay>) {
   return (
-    <DialogPrimitive.Overlay
+    <Overlay
       data-slot="dialog-overlay"
       className={cn(
         'data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 bg-foreground/20 fixed inset-0 z-[900] backdrop-blur-sm',
@@ -40,7 +48,7 @@ function DialogContent({
   'aria-describedby': ariaDescribedBy,
   onInteractOutside,
   ...props
-}: ComponentProps<typeof DialogPrimitive.Content> & {
+}: ComponentProps<typeof Content> & {
   showCloseButton?: boolean;
 }) {
   const handleInteractOutside = (event: {
@@ -66,7 +74,7 @@ function DialogContent({
   return (
     <DialogPortal data-slot="dialog-portal">
       <DialogOverlay />
-      <DialogPrimitive.Content
+      <Content
         data-slot="dialog-content"
         className={cn(
           'bg-card text-card-foreground border-border data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 fixed top-[50%] left-[50%] z-[900] flex max-h-[90vh] w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] flex-col gap-4 rounded-lg border p-5 shadow-lg transition-all',
@@ -79,16 +87,16 @@ function DialogContent({
       >
         {children}
         {showCloseButton && (
-          <DialogPrimitive.Close
+          <Close
             data-slot="dialog-close"
             className="text-muted-foreground hover:text-foreground focus:ring-ring absolute top-4 right-4 flex items-center justify-center rounded-sm p-1 transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-none disabled:pointer-events-none"
             aria-label="닫기"
           >
             <X className="size-5" />
             <span className="sr-only">닫기</span>
-          </DialogPrimitive.Close>
+          </Close>
         )}
-      </DialogPrimitive.Content>
+      </Content>
     </DialogPortal>
   );
 }
@@ -113,22 +121,13 @@ function DialogFooter({ className, ...props }: ComponentProps<'div'>) {
   );
 }
 
-function DialogTitle({ className, ...props }: ComponentProps<typeof DialogPrimitive.Title>) {
-  return (
-    <DialogPrimitive.Title
-      data-slot="dialog-title"
-      className={cn('heading-3', className)}
-      {...props}
-    />
-  );
+function DialogTitle({ className, ...props }: ComponentProps<typeof Title>) {
+  return <Title data-slot="dialog-title" className={cn('heading-3', className)} {...props} />;
 }
 
-function DialogDescription({
-  className,
-  ...props
-}: ComponentProps<typeof DialogPrimitive.Description>) {
+function DialogDescription({ className, ...props }: ComponentProps<typeof Description>) {
   return (
-    <DialogPrimitive.Description
+    <Description
       data-slot="dialog-description"
       className={cn('text-muted-foreground body-small', className)}
       {...props}

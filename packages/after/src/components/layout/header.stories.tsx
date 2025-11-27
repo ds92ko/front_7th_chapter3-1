@@ -1,4 +1,4 @@
-import { Header } from '@/components/layout/header';
+import { Header } from '@/components/layout';
 import { ThemeProvider } from '@/contexts/theme.provider';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 

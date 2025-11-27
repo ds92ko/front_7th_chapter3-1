@@ -1,4 +1,4 @@
-import { StatCard } from '@/components/data-display/stat-card';
+import { StatCard } from '@/components/data-display';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta = {

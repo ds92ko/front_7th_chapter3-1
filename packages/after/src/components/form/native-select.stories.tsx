@@ -1,9 +1,4 @@
-import { Label } from '@/components/form/label';
-import {
-  NativeSelect,
-  NativeSelectOptGroup,
-  NativeSelectOption,
-} from '@/components/form/native-select';
+import { Label, NativeSelect, NativeSelectOptGroup, NativeSelectOption } from '@/components/form';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta = {

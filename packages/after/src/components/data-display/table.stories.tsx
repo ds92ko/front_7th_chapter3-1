@@ -7,8 +7,8 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/components/data-display/table';
-import { Button } from '@/components/form/button';
+} from '@/components/data-display';
+import { Button } from '@/components/form';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta = {

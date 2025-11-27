@@ -1,4 +1,4 @@
-import { Button } from '@/components/form/button';
+import { Button } from '@/components/form';
 import {
   Dialog,
   DialogClose,
@@ -8,7 +8,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/components/overlay/dialog';
+} from '@/components/overlay';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 

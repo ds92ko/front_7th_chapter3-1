@@ -1,4 +1,4 @@
-import { Button } from '@/components/form/button';
+import { Button } from '@/components/form';
 import {
   Form,
   FormControl,
@@ -7,8 +7,8 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/form/form';
-import { Input } from '@/components/form/input';
+  Input,
+} from '@/components/form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useEffect } from 'react';

@@ -1,5 +1,4 @@
-import { Input } from '@/components/form/input';
-import { Label } from '@/components/form/label';
+import { Input, Label } from '@/components/form';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta = {

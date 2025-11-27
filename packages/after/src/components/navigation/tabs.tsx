@@ -1,7 +1,24 @@
-import type { TabProps, TabsContextValue, TabsProps } from '@/components/navigation/tabs.types';
 import { cn } from '@/lib/utils';
 import { cva } from 'class-variance-authority';
+import type { ReactNode } from 'react';
 import { createContext, useContext } from 'react';
+
+interface TabsContextValue {
+  value: string;
+  onChange: (value: string) => void;
+}
+
+interface TabsProps {
+  value: string;
+  onChange: (value: string) => void;
+  children: ReactNode;
+  className?: string;
+}
+
+interface TabProps {
+  value: string;
+  children: ReactNode;
+}
 
 const TabsContext = createContext<TabsContextValue | null>(null);
 

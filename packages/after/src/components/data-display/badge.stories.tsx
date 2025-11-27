@@ -1,4 +1,4 @@
-import { Badge } from '@/components/data-display/badge';
+import { Badge } from '@/components/data-display';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta = {
@@ -248,4 +248,3 @@ export const RoundedVariants: Story = {
     </div>
   ),
 };
-

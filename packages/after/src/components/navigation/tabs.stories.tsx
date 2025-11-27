@@ -1,4 +1,4 @@
-import { Tab, Tabs } from '@/components/navigation/tabs';
+import { Tab, Tabs } from '@/components/navigation';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 
