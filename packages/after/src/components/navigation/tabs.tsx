@@ -74,7 +74,9 @@ function Tabs({ value, onChange, children, className }: TabsProps) {
   return (
     <TabsContext.Provider value={contextValue}>
       <div className="border-border mb-4 border-b">
-        <div className={cn('inline-flex items-center justify-start', className)}>{children}</div>
+        <div role="tablist" className={cn('inline-flex items-center justify-start', className)}>
+          {children}
+        </div>
       </div>
     </TabsContext.Provider>
   );
