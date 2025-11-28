@@ -1,14 +1,8 @@
 import { userService } from '@/services/userService';
 import type { User } from '@/services/userService';
 import { userMessages } from '../../constants/messages';
+import { userFormSchema, type UserFormData } from '../../schemas/user.schema';
 import { useEntityCRUD } from '../useEntityCRUD';
-
-export type UserFormData = {
-  username?: string;
-  email?: string;
-  role?: User['role'];
-  status?: User['status'];
-};
 
 export function useUserCRUD(
   loadData: () => Promise<void>,
@@ -23,37 +17,25 @@ export function useUserCRUD(
   >(
     {
       service: userService,
+      schema: userFormSchema,
       formDefaults: {
         username: '',
         email: '',
         role: 'user',
         status: 'active',
       },
-      validate: (data) => {
-        if (!data.username || !data.email) {
-          return userMessages.validation.required;
-        }
-        const userStatus = data.status || 'active';
-        if (userStatus !== 'active' && userStatus !== 'inactive' && userStatus !== 'suspended') {
-          return userMessages.validation.invalidStatus;
-        }
-        return null;
-      },
       mapFormToCreate: (data): Omit<User, 'id' | 'createdAt'> => ({
-        username: data.username!,
-        email: data.email!,
-        role: data.role || 'user',
-        status: data.status || 'active',
+        username: data.username,
+        email: data.email,
+        role: data.role,
+        status: data.status,
       }),
       mapFormToUpdate: (data): Partial<Omit<User, 'id' | 'createdAt'>> => {
         const updateData: Partial<Omit<User, 'id' | 'createdAt'>> = {};
-        if (data.username) updateData.username = data.username;
-        if (data.email) updateData.email = data.email;
-        if (data.role) updateData.role = data.role;
-        const userStatus = data.status;
-        if (userStatus === 'active' || userStatus === 'inactive' || userStatus === 'suspended') {
-          updateData.status = userStatus;
-        }
+        if (data.username !== undefined) updateData.username = data.username;
+        if (data.email !== undefined) updateData.email = data.email;
+        if (data.role !== undefined) updateData.role = data.role;
+        if (data.status !== undefined) updateData.status = data.status;
         return updateData;
       },
       mapEntityToForm: (entity) => ({

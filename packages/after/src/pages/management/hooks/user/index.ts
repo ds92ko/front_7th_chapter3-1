@@ -1,4 +1,5 @@
-export { useUserCRUD, type UserFormData } from './useUserCRUD';
+export { useUserCRUD } from './useUserCRUD';
+export { type UserFormData } from '../../schemas/user.schema';
 export { useUserData } from './useUserData';
 export { useUserDialog } from './useUserDialog';
 export { useUserForm } from './useUserForm';

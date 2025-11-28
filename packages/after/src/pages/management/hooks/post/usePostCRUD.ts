@@ -1,15 +1,8 @@
 import type { Post } from '@/services/postService';
 import { postService } from '@/services/postService';
 import { postMessages } from '../../constants/messages';
+import { postFormSchema, type PostFormData } from '../../schemas/post.schema';
 import { useEntityCRUD } from '../useEntityCRUD';
-
-export type PostFormData = {
-  title?: string;
-  content?: string;
-  author?: string;
-  category?: string;
-  status?: Post['status'];
-};
 
 export function usePostCRUD(
   loadData: () => Promise<void>,
@@ -24,6 +17,7 @@ export function usePostCRUD(
   >(
     {
       service: postService,
+      schema: postFormSchema,
       formDefaults: {
         title: '',
         content: '',
@@ -31,33 +25,20 @@ export function usePostCRUD(
         category: '',
         status: 'draft',
       },
-      validate: data => {
-        if (!data.title || !data.author || !data.category) {
-          return postMessages.validation.required;
-        }
-        const postStatus = data.status || 'draft';
-        if (postStatus !== 'draft' && postStatus !== 'published' && postStatus !== 'archived') {
-          return postMessages.validation.invalidStatus;
-        }
-        return null;
-      },
       mapFormToCreate: (data): Omit<Post, 'id' | 'createdAt' | 'views'> => ({
-        title: data.title!,
+        title: data.title,
         content: data.content || '',
-        author: data.author!,
-        category: data.category!,
-        status: data.status || 'draft',
+        author: data.author,
+        category: data.category,
+        status: data.status,
       }),
       mapFormToUpdate: (data): Partial<Omit<Post, 'id' | 'createdAt' | 'views'>> => {
         const updateData: Partial<Omit<Post, 'id' | 'createdAt' | 'views'>> = {};
-        if (data.title) updateData.title = data.title;
+        if (data.title !== undefined) updateData.title = data.title;
         if (data.content !== undefined) updateData.content = data.content;
-        if (data.author) updateData.author = data.author;
-        if (data.category) updateData.category = data.category;
-        const postStatus = data.status;
-        if (postStatus === 'draft' || postStatus === 'published' || postStatus === 'archived') {
-          updateData.status = postStatus;
-        }
+        if (data.author !== undefined) updateData.author = data.author;
+        if (data.category !== undefined) updateData.category = data.category;
+        if (data.status !== undefined) updateData.status = data.status;
         return updateData;
       },
       mapEntityToForm: entity => ({

@@ -1,4 +1,5 @@
-export { usePostCRUD, type PostFormData } from './usePostCRUD';
+export { usePostCRUD } from './usePostCRUD';
+export { type PostFormData } from '../../schemas/post.schema';
 export { usePostData } from './usePostData';
 export { usePostDialog } from './usePostDialog';
 export { usePostForm } from './usePostForm';

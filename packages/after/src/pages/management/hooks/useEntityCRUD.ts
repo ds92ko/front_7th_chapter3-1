@@ -1,5 +1,7 @@
+import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
-import { useForm, type DefaultValues, type FieldValues } from 'react-hook-form';
+import { useForm, type DefaultValues, type FieldValues, type Resolver } from 'react-hook-form';
+import type { z } from 'zod';
 
 type Service<TEntity, TCreateData, TUpdateData> = {
   create: (data: TCreateData) => Promise<TEntity>;
@@ -18,7 +20,7 @@ type EntityCRUDConfig<
 > = {
   service: Service<TEntity, TCreateData, TUpdateData>;
   formDefaults: TFormData;
-  validate: (data: TFormData) => string | null;
+  schema: z.ZodType<TFormData>;
   mapFormToCreate: (data: TFormData) => TCreateData;
   mapFormToUpdate: (data: TFormData, entity: TEntity) => TUpdateData;
   mapEntityToForm: (entity: TEntity) => TFormData;
@@ -100,18 +102,17 @@ export function useEntityCRUD<
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState<TEntity | null>(null);
 
+  const resolver = zodResolver(
+    config.schema as unknown as Parameters<typeof zodResolver>[0]
+  ) as unknown as Resolver<TFormData>;
+
   const form = useForm<TFormData>({
+    resolver,
     defaultValues: config.formDefaults as DefaultValues<TFormData>,
   });
 
   const handleCreate = async (formData: TFormData) => {
     try {
-      const validationError = config.validate(formData);
-      if (validationError) {
-        showError(validationError);
-        return;
-      }
-
       await config.service.create(config.mapFormToCreate(formData));
 
       await loadData();
