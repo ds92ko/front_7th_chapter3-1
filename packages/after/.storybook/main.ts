@@ -14,6 +14,9 @@ const config: StorybookConfig = {
     options: {},
   },
   viteFinal: async config => {
+    if (config.build) {
+      delete config.build.rollupOptions;
+    }
     if (process.env.STORYBOOK_BASE_PATH) {
       config.base = process.env.STORYBOOK_BASE_PATH;
     }

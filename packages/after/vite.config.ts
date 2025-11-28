@@ -14,6 +14,56 @@ const viteConfig = defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  ...(process.env.STORYBOOK !== 'true' && {
+    build: {
+      target: 'esnext',
+      minify: 'esbuild',
+      cssMinify: true,
+      sourcemap: false,
+      rollupOptions: {
+        input: {
+          main: path.resolve(__dirname, 'index.html'),
+        },
+        output: {
+          manualChunks: id => {
+            if (id.includes('.stories.') || id.includes('storybook')) {
+              return;
+            }
+            if (id.includes('node_modules')) {
+              if (id.includes('react') || id.includes('react-dom')) {
+                return 'react-vendor';
+              }
+              if (id.includes('@radix-ui')) {
+                return 'radix-ui';
+              }
+              if (
+                id.includes('react-hook-form') ||
+                id.includes('@hookform') ||
+                id.includes('zod')
+              ) {
+                return 'form-vendor';
+              }
+              if (id.includes('lucide-react')) {
+                return 'lucide-icons';
+              }
+              if (
+                id.includes('class-variance-authority') ||
+                id.includes('clsx') ||
+                id.includes('tailwind-merge')
+              ) {
+                return 'utils';
+              }
+              return 'vendor';
+            }
+          },
+          chunkFileNames: 'assets/js/[name]-[hash].js',
+          entryFileNames: 'assets/js/[name]-[hash].js',
+          assetFileNames: 'assets/[ext]/[name]-[hash].[ext]',
+        },
+      },
+      chunkSizeWarningLimit: 1000,
+    },
+  }),
 });
 
 export default mergeConfig(

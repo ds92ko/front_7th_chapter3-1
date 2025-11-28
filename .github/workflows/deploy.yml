@@ -55,6 +55,7 @@ jobs:
           cd packages/after
           pnpm run build-storybook
         env:
+          STORYBOOK: 'true'
           STORYBOOK_BASE_PATH: /${{ github.event.repository.name }}/storybook/
 
       - name: Copy Storybook to dist
