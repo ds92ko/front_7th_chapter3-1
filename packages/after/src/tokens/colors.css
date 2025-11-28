@@ -4,190 +4,190 @@
 
 :root {
   /* Base colors - Gray scale */
-  --background: oklch(0.98 0 0); /* #f7fafc - 매우 밝은 회색 */
-  --foreground: oklch(0.15 0 0); /* #1a202c - 거의 검은색 */
-  --card: oklch(1 0 0); /* #ffffff - 흰색 */
-  --card-foreground: oklch(0.15 0 0); /* #1a202c */
+  --background: #f0f0f0; /* #f7fafc - 매우 밝은 회색 */
+  --foreground: #1a202c; /* 거의 검은색 */
+  --card: #ffffff; /* 흰색 */
+  --card-foreground: #1a202c;
 
   /* Popover */
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.15 0 0);
+  --popover: #ffffff;
+  --popover-foreground: #1a202c;
 
   /* Primary - Blue (Brand color) */
-  --primary: oklch(0.546 0.245 262.881); /* 밝은 블루 - shadcn 블루 테마 */
-  --primary-foreground: oklch(0.97 0.014 254.604); /* 흰색 */
-  --primary-dark: oklch(0.4 0.245 262.881); /* 어두운 블루 - /10 배경 위 텍스트용 */
+  --primary: #3b82f6; /* 밝은 블루 - shadcn 블루 테마 */
+  --primary-foreground: #fafafa; /* 흰색 */
+  --primary-dark: #1e40af; /* 어두운 블루 - /10 배경 위 텍스트용 */
 
   /* Secondary - Light gray */
-  --secondary: oklch(0.96 0 0); /* #f5f5f5 */
-  --secondary-foreground: oklch(0.25 0 0); /* #333 */
+  --secondary: #f5f5f5;
+  --secondary-foreground: #333333;
 
   /* Muted - Very light gray */
-  --muted: oklch(0.98 0 0); /* #fafafa */
-  --muted-foreground: oklch(0.3 0 0); /* 더 어두운 회색 - 대비율 개선 (WCAG AA 기준 충족) */
+  --muted: #fafafa;
+  --muted-foreground: #4a5568; /* 더 어두운 회색 - 대비율 개선 (WCAG AA 기준 충족) */
 
   /* Accent - Light blue tint */
-  --accent: oklch(0.95 0.02 250); /* #e3f2fd - 매우 밝은 블루 */
-  --accent-foreground: oklch(0.35 0.18 250); /* 더 어두운 블루 - 대비율 개선 */
+  --accent: #e3f2fd; /* 매우 밝은 블루 */
+  --accent-foreground: #1565c0; /* 더 어두운 블루 - 대비율 개선 */
 
   /* Destructive - Red */
-  --destructive: oklch(0.55 0.22 25); /* #d32f2f - Red 700 */
-  --destructive-foreground: oklch(0.985 0 0); /* 흰색 */
-  --destructive-light: oklch(0.96 0.03 25); /* 매우 연한 빨강 - 배경용 */
-  --destructive-dark: oklch(0.4 0.22 25); /* 어두운 빨강 - /10 배경 위 텍스트용 */
+  --destructive: #d32f2f; /* Red 700 */
+  --destructive-foreground: #fafafa; /* 흰색 */
+  --destructive-light: #ffebee; /* 매우 연한 빨강 - 배경용 */
+  --destructive-dark: #b71c1c; /* 어두운 빨강 - /10 배경 위 텍스트용 */
 
   /* Success - Green */
-  --success: oklch(0.5 0.15 145); /* #388e3c - Green 700 */
-  --success-foreground: oklch(0.985 0 0); /* 흰색 */
-  --success-light: oklch(0.96 0.03 145); /* 매우 연한 초록 - 배경용 */
-  --success-dark: oklch(0.35 0.15 145); /* 어두운 초록 - /10 배경 위 텍스트용 */
+  --success: #388e3c; /* Green 700 */
+  --success-foreground: #fafafa; /* 흰색 */
+  --success-light: #e8f5e9; /* 매우 연한 초록 - 배경용 */
+  --success-dark: #1b5e20; /* 어두운 초록 - /10 배경 위 텍스트용 */
 
   /* Warning - Orange */
-  --warning: oklch(0.65 0.18 60); /* #f57c00 - Orange 700 */
-  --warning-foreground: oklch(0.985 0 0); /* 흰색 */
-  --warning-light: oklch(0.97 0.03 60); /* 매우 연한 주황 - 배경용 */
-  --warning-dark: oklch(0.45 0.18 60); /* 어두운 주황 - /10 배경 위 텍스트용 */
+  --warning: #f57c00; /* Orange 700 */
+  --warning-foreground: #fafafa; /* 흰색 */
+  --warning-light: #fff3e0; /* 매우 연한 주황 - 배경용 */
+  --warning-dark: #e65100; /* 어두운 주황 - /10 배경 위 텍스트용 */
 
   /* Info - Light Blue */
-  --info: oklch(0.55 0.15 240); /* #0288d1 - Blue 600 */
-  --info-foreground: oklch(0.985 0 0); /* 흰색 */
-  --info-light: oklch(0.96 0.03 240); /* 매우 연한 파랑 - 배경용 */
-  --info-dark: oklch(0.4 0.15 240); /* 어두운 파랑 - /10 배경 위 텍스트용 */
+  --info: #0288d1; /* Blue 600 */
+  --info-foreground: #fafafa; /* 흰색 */
+  --info-light: #e1f5fe; /* 매우 연한 파랑 - 배경용 */
+  --info-dark: #01579b; /* 어두운 파랑 - /10 배경 위 텍스트용 */
 
   /* Gray */
-  --gray: oklch(0.5 0 0); /* #808080 - 중간 회색 */
-  --gray-foreground: oklch(0.985 0 0); /* 흰색 */
-  --gray-dark: oklch(0.35 0 0); /* 어두운 회색 - /10 배경 위 텍스트용 */
+  --gray: #808080; /* 중간 회색 */
+  --gray-foreground: #fafafa; /* 흰색 */
+  --gray-dark: #4a5568; /* 어두운 회색 - /10 배경 위 텍스트용 */
 
   /* Yellow */
-  --yellow: oklch(0.75 0.15 90); /* #fbc02d - Yellow 700 */
-  --yellow-foreground: oklch(0.15 0 0); /* 검은색 */
-  --yellow-dark: oklch(0.5 0.15 90); /* 어두운 노랑 - /10 배경 위 텍스트용 */
+  --yellow: #fbc02d; /* Yellow 700 */
+  --yellow-foreground: #1a202c; /* 검은색 */
+  --yellow-dark: #f57f17; /* 어두운 노랑 - /10 배경 위 텍스트용 */
 
   /* Purple */
-  --purple: oklch(0.55 0.2 300); /* #7b1fa2 - Purple 700 */
-  --purple-foreground: oklch(0.985 0 0); /* 흰색 */
-  --purple-dark: oklch(0.4 0.2 300); /* 어두운 보라 - /10 배경 위 텍스트용 */
+  --purple: #7b1fa2; /* Purple 700 */
+  --purple-foreground: #fafafa; /* 흰색 */
+  --purple-dark: #4a148c; /* 어두운 보라 - /10 배경 위 텍스트용 */
 
   /* Pink */
-  --pink: oklch(0.65 0.2 350); /* #c2185b - Pink 700 */
-  --pink-foreground: oklch(0.985 0 0); /* 흰색 */
-  --pink-dark: oklch(0.45 0.2 350); /* 어두운 핑크 - /10 배경 위 텍스트용 */
+  --pink: #c2185b; /* Pink 700 */
+  --pink-foreground: #fafafa; /* 흰색 */
+  --pink-dark: #880e4f; /* 어두운 핑크 - /10 배경 위 텍스트용 */
 
   /* Borders and inputs */
-  --border: oklch(0.9 0 0); /* #e5e7eb - Gray 200 */
-  --input: oklch(0.9 0 0); /* #e5e7eb */
-  --ring: oklch(0.546 0.245 262.881); /* Primary blue for focus rings */
+  --border: #e5e7eb; /* Gray 200 */
+  --input: #e5e7eb;
+  --ring: #3b82f6; /* Primary blue for focus rings */
 
   /* Chart colors - shadcn 블루 테마 */
-  --chart-1: oklch(0.809 0.105 251.813);
-  --chart-2: oklch(0.623 0.214 259.815);
-  --chart-3: oklch(0.546 0.245 262.881);
-  --chart-4: oklch(0.488 0.243 264.376);
-  --chart-5: oklch(0.424 0.199 265.638);
+  --chart-1: #93c5fd;
+  --chart-2: #60a5fa;
+  --chart-3: #3b82f6;
+  --chart-4: #2563eb;
+  --chart-5: #1d4ed8;
 
   /* Sidebar */
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.15 0 0);
-  --sidebar-primary: oklch(0.546 0.245 262.881);
-  --sidebar-primary-foreground: oklch(0.97 0.014 254.604);
-  --sidebar-accent: oklch(0.96 0 0);
-  --sidebar-accent-foreground: oklch(0.25 0 0);
-  --sidebar-border: oklch(0.9 0 0);
-  --sidebar-ring: oklch(0.546 0.245 262.881);
+  --sidebar: #fafafa;
+  --sidebar-foreground: #1a202c;
+  --sidebar-primary: #3b82f6;
+  --sidebar-primary-foreground: #fafafa;
+  --sidebar-accent: #f5f5f5;
+  --sidebar-accent-foreground: #333333;
+  --sidebar-border: #e5e7eb;
+  --sidebar-ring: #3b82f6;
 }
 
 .dark {
   /* Base colors - Dark gray scale */
-  --background: oklch(0.12 0 0); /* 매우 어두운 회색 */
-  --foreground: oklch(0.98 0 0); /* 거의 흰색 */
-  --card: oklch(0.18 0 0); /* 어두운 회색 */
-  --card-foreground: oklch(0.98 0 0);
+  --background: #1a1a1a; /* 매우 어두운 회색 */
+  --foreground: #fafafa; /* 거의 흰색 */
+  --card: #2d2d2d; /* 어두운 회색 */
+  --card-foreground: #fafafa;
 
   /* Popover */
-  --popover: oklch(0.18 0 0);
-  --popover-foreground: oklch(0.98 0 0);
+  --popover: #2d2d2d;
+  --popover-foreground: #fafafa;
 
   /* Primary - Lighter blue for dark mode */
-  --primary: oklch(0.623 0.214 259.815); /* 밝은 블루 - shadcn 블루 테마 */
-  --primary-foreground: oklch(0.97 0.014 254.604); /* 흰색 */
-  --primary-dark: oklch(0.7 0.214 259.815); /* 다크 모드용 - /10 배경 위 텍스트용 */
+  --primary: #60a5fa; /* 밝은 블루 - shadcn 블루 테마 */
+  --primary-foreground: #fafafa; /* 흰색 */
+  --primary-dark: #93c5fd; /* 다크 모드용 - /10 배경 위 텍스트용 */
 
   /* Secondary - Dark gray */
-  --secondary: oklch(0.25 0 0); /* 어두운 회색 */
-  --secondary-foreground: oklch(0.98 0 0);
+  --secondary: #404040; /* 어두운 회색 */
+  --secondary-foreground: #fafafa;
 
   /* Muted - Dark gray */
-  --muted: oklch(0.25 0 0);
-  --muted-foreground: oklch(0.7 0 0); /* 밝은 회색 */
+  --muted: #404040;
+  --muted-foreground: #b3b3b3; /* 밝은 회색 */
 
   /* Accent - Dark blue tint */
-  --accent: oklch(0.25 0.05 250);
-  --accent-foreground: oklch(0.65 0.18 250);
+  --accent: #1e3a5f;
+  --accent-foreground: #60a5fa;
 
   /* Destructive - Lighter red for dark mode */
-  --destructive: oklch(0.65 0.2 25); /* 밝은 빨강 */
-  --destructive-foreground: oklch(0.98 0 0);
-  --destructive-light: oklch(0.25 0.05 25); /* 어두운 모드용 연한 빨강 - 배경용 */
-  --destructive-dark: oklch(0.75 0.2 25); /* 다크 모드용 - /10 배경 위 텍스트용 */
+  --destructive: #ef4444; /* 밝은 빨강 */
+  --destructive-foreground: #fafafa;
+  --destructive-light: #7f1d1d; /* 어두운 모드용 연한 빨강 - 배경용 */
+  --destructive-dark: #f87171; /* 다크 모드용 - /10 배경 위 텍스트용 */
 
   /* Success - Lighter green for dark mode */
-  --success: oklch(0.6 0.15 145); /* 밝은 초록 */
-  --success-foreground: oklch(0.98 0 0);
-  --success-light: oklch(0.25 0.05 145); /* 어두운 모드용 연한 초록 - 배경용 */
-  --success-dark: oklch(0.7 0.15 145); /* 다크 모드용 - /10 배경 위 텍스트용 */
+  --success: #4ade80; /* 밝은 초록 */
+  --success-foreground: #fafafa;
+  --success-light: #14532d; /* 어두운 모드용 연한 초록 - 배경용 */
+  --success-dark: #86efac; /* 다크 모드용 - /10 배경 위 텍스트용 */
 
   /* Warning - Lighter orange for dark mode */
-  --warning: oklch(0.7 0.18 60); /* 밝은 주황 */
-  --warning-foreground: oklch(0.1 0 0);
-  --warning-light: oklch(0.25 0.05 60); /* 어두운 모드용 연한 주황 - 배경용 */
-  --warning-dark: oklch(0.8 0.18 60); /* 다크 모드용 - /10 배경 위 텍스트용 */
+  --warning: #fb923c; /* 밝은 주황 */
+  --warning-foreground: #1a1a1a;
+  --warning-light: #7c2d12; /* 어두운 모드용 연한 주황 - 배경용 */
+  --warning-dark: #fdba74; /* 다크 모드용 - /10 배경 위 텍스트용 */
 
   /* Info - Lighter blue for dark mode */
-  --info: oklch(0.65 0.15 240); /* 밝은 파랑 */
-  --info-foreground: oklch(0.98 0 0);
-  --info-light: oklch(0.25 0.05 240); /* 어두운 모드용 연한 파랑 - 배경용 */
-  --info-dark: oklch(0.75 0.15 240); /* 다크 모드용 - /10 배경 위 텍스트용 */
+  --info: #38bdf8; /* 밝은 파랑 */
+  --info-foreground: #fafafa;
+  --info-light: #0c4a6e; /* 어두운 모드용 연한 파랑 - 배경용 */
+  --info-dark: #7dd3fc; /* 다크 모드용 - /10 배경 위 텍스트용 */
 
   /* Gray - Lighter for dark mode */
-  --gray: oklch(0.6 0 0); /* 밝은 회색 */
-  --gray-foreground: oklch(0.98 0 0);
-  --gray-dark: oklch(0.75 0 0); /* 다크 모드용 - /10 배경 위 텍스트용 */
+  --gray: #9ca3af; /* 밝은 회색 */
+  --gray-foreground: #fafafa;
+  --gray-dark: #d1d5db; /* 다크 모드용 - /10 배경 위 텍스트용 */
 
   /* Yellow - Lighter for dark mode */
-  --yellow: oklch(0.8 0.15 90); /* 밝은 노랑 */
-  --yellow-foreground: oklch(0.15 0 0); /* 검은색 */
-  --yellow-dark: oklch(0.85 0.15 90); /* 다크 모드용 - /10 배경 위 텍스트용 */
+  --yellow: #fbbf24; /* 밝은 노랑 */
+  --yellow-foreground: #1a202c; /* 검은색 */
+  --yellow-dark: #fcd34d; /* 다크 모드용 - /10 배경 위 텍스트용 */
 
   /* Purple - Lighter for dark mode */
-  --purple: oklch(0.65 0.2 300); /* 밝은 보라 */
-  --purple-foreground: oklch(0.98 0 0);
-  --purple-dark: oklch(0.75 0.2 300); /* 다크 모드용 - /10 배경 위 텍스트용 */
+  --purple: #a78bfa; /* 밝은 보라 */
+  --purple-foreground: #fafafa;
+  --purple-dark: #c4b5fd; /* 다크 모드용 - /10 배경 위 텍스트용 */
 
   /* Pink - Lighter for dark mode */
-  --pink: oklch(0.7 0.2 350); /* 밝은 핑크 */
-  --pink-foreground: oklch(0.98 0 0);
-  --pink-dark: oklch(0.8 0.2 350); /* 다크 모드용 - /10 배경 위 텍스트용 */
+  --pink: #f472b6; /* 밝은 핑크 */
+  --pink-foreground: #fafafa;
+  --pink-dark: #f9a8d4; /* 다크 모드용 - /10 배경 위 텍스트용 */
 
   /* Borders and inputs */
-  --border: oklch(0.3 0 0 / 0.5); /* 반투명 어두운 회색 */
-  --input: oklch(0.3 0 0 / 0.6);
-  --ring: oklch(0.556 0 0); /* Primary blue - shadcn 블루 테마 */
+  --border: rgba(64, 64, 64, 0.5); /* 반투명 어두운 회색 */
+  --input: rgba(64, 64, 64, 0.6);
+  --ring: #60a5fa; /* Primary blue - shadcn 블루 테마 */
 
   /* Chart colors - shadcn 블루 테마 */
-  --chart-1: oklch(0.809 0.105 251.813);
-  --chart-2: oklch(0.623 0.214 259.815);
-  --chart-3: oklch(0.546 0.245 262.881);
-  --chart-4: oklch(0.488 0.243 264.376);
-  --chart-5: oklch(0.424 0.199 265.638);
+  --chart-1: #93c5fd;
+  --chart-2: #60a5fa;
+  --chart-3: #3b82f6;
+  --chart-4: #2563eb;
+  --chart-5: #1d4ed8;
 
   /* Sidebar */
-  --sidebar: oklch(0.18 0 0);
-  --sidebar-foreground: oklch(0.98 0 0);
-  --sidebar-primary: oklch(0.623 0.214 259.815);
-  --sidebar-primary-foreground: oklch(0.97 0.014 254.604);
-  --sidebar-accent: oklch(0.25 0 0);
-  --sidebar-accent-foreground: oklch(0.98 0 0);
-  --sidebar-border: oklch(0.3 0 0 / 0.5);
-  --sidebar-ring: oklch(0.623 0.214 259.815);
+  --sidebar: #2d2d2d;
+  --sidebar-foreground: #fafafa;
+  --sidebar-primary: #60a5fa;
+  --sidebar-primary-foreground: #fafafa;
+  --sidebar-accent: #404040;
+  --sidebar-accent-foreground: #fafafa;
+  --sidebar-border: rgba(64, 64, 64, 0.5);
+  --sidebar-ring: #60a5fa;
 }
