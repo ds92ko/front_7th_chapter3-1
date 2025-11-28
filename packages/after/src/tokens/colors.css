@@ -16,6 +16,7 @@
   /* Primary - Blue (Brand color) */
   --primary: oklch(0.546 0.245 262.881); /* 밝은 블루 - shadcn 블루 테마 */
   --primary-foreground: oklch(0.97 0.014 254.604); /* 흰색 */
+  --primary-dark: oklch(0.4 0.245 262.881); /* 어두운 블루 - /10 배경 위 텍스트용 */
 
   /* Secondary - Light gray */
   --secondary: oklch(0.96 0 0); /* #f5f5f5 */
@@ -23,47 +24,55 @@
 
   /* Muted - Very light gray */
   --muted: oklch(0.98 0 0); /* #fafafa */
-  --muted-foreground: oklch(0.45 0 0); /* #718096 */
+  --muted-foreground: oklch(0.3 0 0); /* 더 어두운 회색 - 대비율 개선 (WCAG AA 기준 충족) */
 
   /* Accent - Light blue tint */
   --accent: oklch(0.95 0.02 250); /* #e3f2fd - 매우 밝은 블루 */
-  --accent-foreground: oklch(0.45 0.18 250); /* Primary blue */
+  --accent-foreground: oklch(0.35 0.18 250); /* 더 어두운 블루 - 대비율 개선 */
 
   /* Destructive - Red */
   --destructive: oklch(0.55 0.22 25); /* #d32f2f - Red 700 */
   --destructive-foreground: oklch(0.985 0 0); /* 흰색 */
   --destructive-light: oklch(0.96 0.03 25); /* 매우 연한 빨강 - 배경용 */
+  --destructive-dark: oklch(0.4 0.22 25); /* 어두운 빨강 - /10 배경 위 텍스트용 */
 
   /* Success - Green */
   --success: oklch(0.5 0.15 145); /* #388e3c - Green 700 */
   --success-foreground: oklch(0.985 0 0); /* 흰색 */
   --success-light: oklch(0.96 0.03 145); /* 매우 연한 초록 - 배경용 */
+  --success-dark: oklch(0.35 0.15 145); /* 어두운 초록 - /10 배경 위 텍스트용 */
 
   /* Warning - Orange */
   --warning: oklch(0.65 0.18 60); /* #f57c00 - Orange 700 */
   --warning-foreground: oklch(0.985 0 0); /* 흰색 */
   --warning-light: oklch(0.97 0.03 60); /* 매우 연한 주황 - 배경용 */
+  --warning-dark: oklch(0.45 0.18 60); /* 어두운 주황 - /10 배경 위 텍스트용 */
 
   /* Info - Light Blue */
   --info: oklch(0.55 0.15 240); /* #0288d1 - Blue 600 */
   --info-foreground: oklch(0.985 0 0); /* 흰색 */
   --info-light: oklch(0.96 0.03 240); /* 매우 연한 파랑 - 배경용 */
+  --info-dark: oklch(0.4 0.15 240); /* 어두운 파랑 - /10 배경 위 텍스트용 */
 
   /* Gray */
   --gray: oklch(0.5 0 0); /* #808080 - 중간 회색 */
   --gray-foreground: oklch(0.985 0 0); /* 흰색 */
+  --gray-dark: oklch(0.35 0 0); /* 어두운 회색 - /10 배경 위 텍스트용 */
 
   /* Yellow */
   --yellow: oklch(0.75 0.15 90); /* #fbc02d - Yellow 700 */
   --yellow-foreground: oklch(0.15 0 0); /* 검은색 */
+  --yellow-dark: oklch(0.5 0.15 90); /* 어두운 노랑 - /10 배경 위 텍스트용 */
 
   /* Purple */
   --purple: oklch(0.55 0.2 300); /* #7b1fa2 - Purple 700 */
   --purple-foreground: oklch(0.985 0 0); /* 흰색 */
+  --purple-dark: oklch(0.4 0.2 300); /* 어두운 보라 - /10 배경 위 텍스트용 */
 
   /* Pink */
   --pink: oklch(0.65 0.2 350); /* #c2185b - Pink 700 */
   --pink-foreground: oklch(0.985 0 0); /* 흰색 */
+  --pink-dark: oklch(0.45 0.2 350); /* 어두운 핑크 - /10 배경 위 텍스트용 */
 
   /* Borders and inputs */
   --border: oklch(0.9 0 0); /* #e5e7eb - Gray 200 */
@@ -102,6 +111,7 @@
   /* Primary - Lighter blue for dark mode */
   --primary: oklch(0.623 0.214 259.815); /* 밝은 블루 - shadcn 블루 테마 */
   --primary-foreground: oklch(0.97 0.014 254.604); /* 흰색 */
+  --primary-dark: oklch(0.7 0.214 259.815); /* 다크 모드용 - /10 배경 위 텍스트용 */
 
   /* Secondary - Dark gray */
   --secondary: oklch(0.25 0 0); /* 어두운 회색 */
@@ -119,37 +129,45 @@
   --destructive: oklch(0.65 0.2 25); /* 밝은 빨강 */
   --destructive-foreground: oklch(0.98 0 0);
   --destructive-light: oklch(0.25 0.05 25); /* 어두운 모드용 연한 빨강 - 배경용 */
+  --destructive-dark: oklch(0.75 0.2 25); /* 다크 모드용 - /10 배경 위 텍스트용 */
 
   /* Success - Lighter green for dark mode */
   --success: oklch(0.6 0.15 145); /* 밝은 초록 */
   --success-foreground: oklch(0.98 0 0);
   --success-light: oklch(0.25 0.05 145); /* 어두운 모드용 연한 초록 - 배경용 */
+  --success-dark: oklch(0.7 0.15 145); /* 다크 모드용 - /10 배경 위 텍스트용 */
 
   /* Warning - Lighter orange for dark mode */
   --warning: oklch(0.7 0.18 60); /* 밝은 주황 */
   --warning-foreground: oklch(0.1 0 0);
   --warning-light: oklch(0.25 0.05 60); /* 어두운 모드용 연한 주황 - 배경용 */
+  --warning-dark: oklch(0.8 0.18 60); /* 다크 모드용 - /10 배경 위 텍스트용 */
 
   /* Info - Lighter blue for dark mode */
   --info: oklch(0.65 0.15 240); /* 밝은 파랑 */
   --info-foreground: oklch(0.98 0 0);
   --info-light: oklch(0.25 0.05 240); /* 어두운 모드용 연한 파랑 - 배경용 */
+  --info-dark: oklch(0.75 0.15 240); /* 다크 모드용 - /10 배경 위 텍스트용 */
 
   /* Gray - Lighter for dark mode */
   --gray: oklch(0.6 0 0); /* 밝은 회색 */
   --gray-foreground: oklch(0.98 0 0);
+  --gray-dark: oklch(0.75 0 0); /* 다크 모드용 - /10 배경 위 텍스트용 */
 
   /* Yellow - Lighter for dark mode */
   --yellow: oklch(0.8 0.15 90); /* 밝은 노랑 */
   --yellow-foreground: oklch(0.15 0 0); /* 검은색 */
+  --yellow-dark: oklch(0.85 0.15 90); /* 다크 모드용 - /10 배경 위 텍스트용 */
 
   /* Purple - Lighter for dark mode */
   --purple: oklch(0.65 0.2 300); /* 밝은 보라 */
   --purple-foreground: oklch(0.98 0 0);
+  --purple-dark: oklch(0.75 0.2 300); /* 다크 모드용 - /10 배경 위 텍스트용 */
 
   /* Pink - Lighter for dark mode */
   --pink: oklch(0.7 0.2 350); /* 밝은 핑크 */
   --pink-foreground: oklch(0.98 0 0);
+  --pink-dark: oklch(0.8 0.2 350); /* 다크 모드용 - /10 배경 위 텍스트용 */
 
   /* Borders and inputs */
   --border: oklch(0.3 0 0 / 0.5); /* 반투명 어두운 회색 */

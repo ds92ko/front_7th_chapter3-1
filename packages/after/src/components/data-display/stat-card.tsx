@@ -21,11 +21,11 @@ const statCardVariants = cva('rounded-md border p-3 px-4', {
 const statCardValueVariants = cva('', {
   variants: {
     variant: {
-      default: 'text-primary',
-      info: 'text-info',
-      success: 'text-success',
-      warning: 'text-warning',
-      error: 'text-destructive',
+      default: 'text-primary-dark',
+      info: 'text-info-dark',
+      success: 'text-success-dark',
+      warning: 'text-warning-dark',
+      error: 'text-destructive-dark',
       secondary: 'text-secondary-foreground',
     },
   },
@@ -42,7 +42,7 @@ interface StatCardProps extends ComponentProps<'div'>, VariantProps<typeof statC
 function StatCard({ label, value, variant, className, ...props }: StatCardProps) {
   return (
     <div data-slot="stat-card" className={cn(statCardVariants({ variant, className }))} {...props}>
-      <div className="caption text-muted-foreground mb-1">{label}</div>
+      <div className="caption text-foreground/60 mb-1">{label}</div>
       <div className={cn('display-1 font-mono tabular-nums', statCardValueVariants({ variant }))}>
         {value.toLocaleString()}
       </div>

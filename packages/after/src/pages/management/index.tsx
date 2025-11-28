@@ -30,7 +30,7 @@ export const ManagementPage = () => {
       <div className="mx-auto max-w-[1200px] p-5">
         <div className="mb-5">
           <h1 className="heading-1 text-foreground mb-1">{pageConfig.title}</h1>
-          <p className="body-small text-muted-foreground">{pageConfig.description}</p>
+          <p className="body-small text-foreground/70">{pageConfig.description}</p>
         </div>
 
         <div className="border-border bg-card rounded-xl border p-3">
