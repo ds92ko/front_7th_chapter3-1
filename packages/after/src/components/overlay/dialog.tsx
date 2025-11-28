@@ -51,26 +51,6 @@ function DialogContent({
 }: ComponentProps<typeof Content> & {
   showCloseButton?: boolean;
 }) {
-  const handleInteractOutside = (event: {
-    target: EventTarget | null;
-    preventDefault: () => void;
-  }) => {
-    // overlay 클릭인지 확인 (overlay만 클릭했을 때만 닫기)
-    const target = event.target as HTMLElement | null;
-    const isOverlayClick = target?.getAttribute('data-slot') === 'dialog-overlay';
-
-    // overlay 클릭이 아니면 다이얼로그를 닫지 않음
-    if (!isOverlayClick) {
-      event.preventDefault();
-      return;
-    }
-
-    // 사용자 정의 onInteractOutside가 있으면 호출
-    if (onInteractOutside) {
-      onInteractOutside(event as Parameters<NonNullable<typeof onInteractOutside>>[0]);
-    }
-  };
-
   return (
     <DialogPortal data-slot="dialog-portal">
       <DialogOverlay />
@@ -82,7 +62,18 @@ function DialogContent({
           className
         )}
         aria-describedby={ariaDescribedBy ?? undefined}
-        onInteractOutside={handleInteractOutside}
+        onInteractOutside={event => {
+          const target = event.target as HTMLElement | null;
+          if (target && target.closest('[data-slot="toast"]')) {
+            event.preventDefault();
+            return;
+          }
+          if (onInteractOutside) {
+            onInteractOutside(
+              event as unknown as Parameters<NonNullable<typeof onInteractOutside>>[0]
+            );
+          }
+        }}
         {...props}
       >
         {children}
